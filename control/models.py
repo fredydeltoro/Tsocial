@@ -1,4 +1,6 @@
 from django.db import models
+from catalogos.estadisticos.geograficos.models import Nacionalidad, Entidad, Municipio
+from choices import SEXOS
 
 class Paciente(models.Model):
 	expediente = models.CharField(max_length=12, primary_key=True, unique=True)
@@ -15,7 +17,7 @@ class Paciente(models.Model):
 	nacionalidad = models.ForeignKey(Nacionalidad, default='223')
 
 class DatosPaciente(models.Model):
-    email = models.ForeignKey('paciente')
+    email = models.ForeignKey('Paciente')
     Numero_cel = models.CharField(max_length=100)
     Num_Tel_Casa = models.CharField(max_length=10)
     Estado_Civil=models.CharField(max_length=100)
@@ -26,6 +28,7 @@ class DatosPaciente(models.Model):
     Grupo_Etnico=models.CharField(max_length=100)
 
 class DomicilioPaciente(models.Model):
+	paciente = models.ForeignKey('Paciente')
 	calle = models.CharField(max_length=100)
 	Num_int = models.CharField(max_length=100)
 	Num_Ext = models.CharField(max_length=100)
