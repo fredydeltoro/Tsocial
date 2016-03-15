@@ -1,8 +1,46 @@
-{% extends 'template.html' %}
-{% block titulo %}
-  Agreagar Paciente
-{% endblock titulo%}
+{% extends 'template.html' %} {% block titulo %} Agreagar Paciente {% endblock titulo%} {% block content %}
+<div class="col-md-12">
+  <section class="box box-forms">
 
-{% block content %}
-  <h1>Webos Pinche Fer</h1>
+    <h3>Webos Pinche Fer</h3>
+
+    <p>
+      Algos mas se me ocurrira que poner
+    </p>
+
+    <ul class="tabs">
+      <li>Paciente</li>
+      <li>Datos Paciente</li>
+    </ul>
+
+    <div class="forms">
+      <form>
+        <div class="paciente">
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Check me out
+            </label>
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+
+        </div>
+      </form>
+    </div>
+
+  </section>
+</div>
 {% endblock content %}

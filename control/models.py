@@ -17,15 +17,15 @@ class Paciente(models.Model):
 	nacionalidad = models.ForeignKey(Nacionalidad, default='223')
 
 class DatosPaciente(models.Model):
-    email = models.ForeignKey('Paciente')
-    Numero_cel = models.CharField(max_length=100)
-    Num_Tel_Casa = models.CharField(max_length=10)
-    Estado_Civil=models.CharField(max_length=100)
-    Escolaridad= models.CharField(max_length=100)
-    Ocupacion=models.CharField(max_length=100)
-    Religion=models.CharField(max_length=100)
-    Dialecto = models.CharField(max_length=100)
-    Grupo_Etnico=models.CharField(max_length=100)
+    paciente = models.ForeignKey('Paciente')
+    numero_cel = models.CharField(max_length=100)
+    num_tel_casa = models.CharField(max_length=10)
+    estado_civil = models.CharField(max_length=100)
+    escolaridad = models.CharField(max_length=100)
+    ocupacion = models.CharField(max_length=100)
+    religion = models.CharField(max_length=100)
+    dialecto = models.CharField(max_length=100)
+    grupo_etnico = models.CharField(max_length=100)
 
 class DomicilioPaciente(models.Model):
 	paciente = models.ForeignKey('Paciente')

@@ -7,9 +7,20 @@
     </title>
     {% load static from staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" >
+    <link rel="stylesheet" href="{% static 'css/elements.css'%}" >
   </head>
   <body>
-    {% block content %}
-    {% endblock content %}
+    <header class="header">
+      <h2>Departamento de Trabajo Social </h2>
+    </header>
+    <div class="contenedor">
+      <div class="row">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
+    <footer class="footer">
+      <h3>Sistema de Información Hospitalaria 2015 | HGSJR</h3>
+    </footer>
   </body>
 </html>

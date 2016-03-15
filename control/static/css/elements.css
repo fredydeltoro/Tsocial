@@ -1,0 +1,15 @@
+.contenedor {
+  max-width: 1000px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+
+.box {
+  position: relative;
+  padding: 2em;
+  border: 2px solid #eee;
+  border-radius: 3px; }
+  .box h3 {
+    margin-top: 0px; }
