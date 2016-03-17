@@ -15,17 +15,21 @@ class Paciente(models.Model):
 	municipio = models.ForeignKey(Municipio)
 	entidad = models.ForeignKey(Entidad)
 	nacionalidad = models.ForeignKey(Nacionalidad, default='223')
+	def __unicode__(self):
+		return self.expediente
 
 class DatosPaciente(models.Model):
-    paciente = models.ForeignKey('Paciente')
-    numero_cel = models.CharField(max_length=100)
-    num_tel_casa = models.CharField(max_length=10)
-    estado_civil = models.CharField(max_length=100)
-    escolaridad = models.CharField(max_length=100)
-    ocupacion = models.CharField(max_length=100)
-    religion = models.CharField(max_length=100)
-    dialecto = models.CharField(max_length=100)
-    grupo_etnico = models.CharField(max_length=100)
+	paciente = models.ForeignKey('Paciente')
+	numero_cel = models.CharField(max_length=100)
+	num_tel_casa = models.CharField(max_length=10)
+	estado_civil = models.CharField(max_length=100)
+	escolaridad = models.CharField(max_length=100)
+	ocupacion = models.CharField(max_length=100)
+	religion = models.CharField(max_length=100)
+	dialecto = models.CharField(max_length=100)
+	grupo_etnico = models.CharField(max_length=100)
+	def __unicode__(self):
+		return self.paciente.expediente
 
 class DomicilioPaciente(models.Model):
 	paciente = models.ForeignKey('Paciente')
@@ -33,3 +37,5 @@ class DomicilioPaciente(models.Model):
 	Num_int = models.CharField(max_length=100)
 	Num_Ext = models.CharField(max_length=100)
 	colonia = models.CharField(max_length=100)
+	def __unicode__(self):
+		return self.paciente.expediente

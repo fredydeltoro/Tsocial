@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAAA,YAAY;EACV,aAAa,EAAE,IAAI",
+"mappings": "AAAA,YAAY;EACV,aAAa,EAAE,IAAI;;AAGrB,IAAI;EACF,OAAO,EAAE,IAAI",
 "sources": ["../sass/add_paciente.scss"],
 "names": [],
 "file": "add_paciente.css"

@@ -4,7 +4,7 @@
 {% endblock titulo%}
 {% load static from staticfiles %}
 {% block styles %}
-  <link rel="stylesheet" href="{% static 'css/add_paciente.css'%}" >
+  <link rel="stylesheet" href="{% static 'css/add_paciente.css'%}">
 {% endblock styles %}
 {% block content %}
   <div class="col-md-12">
@@ -13,18 +13,18 @@
       <h3>Ingreso de Paciente</h3>
 
       <p>
-        Por favor ingrese los datos solicitados
+        Por favor ingrese los datos solicitados en cada una de las pestañas
       </p>
 
       <ul class="tabs">
         <li class="active">
-          <a href="#" aria-expanded="true" id="paciente">Paciente</a>
+          <a href="#" class="{%if paciente.errors %}text-danger{%endif%}" id="paciente">Paciente</a>
         </li>
         <li>
-          <a href="#" id="datos" aria-expanded="false">Datos Paciente</a>
+          <a href="#" id="datos" class="{%if datos.errors %}text-danger{%endif%}">Datos Paciente</a>
         </li>
         <li>
-          <a href="#" id="domicilio" aria-expanded="false">Domicilio</a>
+          <a href="#" id="domicilio" class="{%if domicilio.errors %}text-danger{%endif%}">Domicilio</a>
         </li>
       </ul>
 
@@ -34,59 +34,59 @@
           <div class="paciente">
             <div class="row">
               <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group {%if paciente.expediente.errors %}has-error{%endif%}">
                   <label>Expediente</label>
                   {{paciente.expediente}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.no_afiliacion.errors %}has-error{%endif%}">
                   <label>No. de Afiliacion</label>
                   {{paciente.no_afiliacion}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.nombre.errors %}has-error{%endif%}">
                   <label>Nombre</label>
                   {{paciente.nombre}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.apaterno.errors %}has-error{%endif%}">
                   <label>A Paterno</label>
                   {{paciente.apaterno}}
                 </div>
               </div>
               <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group {%if paciente.amaterno.errors %}has-error{%endif%}">
                   <label>A Materno</label>
                   {{paciente.amaterno}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.sexo.errors %}has-error{%endif%}">
                   <label>Sexo</label>
                   {{paciente.sexo}}
                 </div>
-                <div class="form-group">
+                <div class="form-group {%if paciente.fec_nac.errors %}has-error{%endif%}">
                   <label>Fecha de Nacimiento</label>
                   {{paciente.fec_nac}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.entidad_nac.errors %}has-error{%endif%}">
                   <label>Entidad de Nacimiento</label>
                   {{paciente.entidad_nac}}
                 </div>
               </div>
 
               <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group {%if paciente.curp.errors %}has-error{%endif%}">
                   <label>CURP</label>
                   {{paciente.curp}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.municipio.errors %}has-error{%endif%}">
                   <label>Municipio</label>
                   {{paciente.municipio}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.entidad.errors %}has-error{%endif%}">
                   <label>Entidad</label>
                   {{paciente.entidad}}
                 </div>
@@ -101,6 +101,9 @@
           <div class="datos-paciente" style="display:none">
             <div class="row">
               <div class="col-md-4">
+                  <select class="exp" id="id_form-2-paciente" name="form-2-paciente">
+                    <option id='change2' value="" selected="selected">---------</option>
+                  </select>
                 <div class="form-group">
                   <label>Celular</label>
                   {{datos.numero_cel}}
@@ -148,6 +151,9 @@
           <div class="domicilio" style="display:none">
             <div class="row">
               <div class="col-md-6">
+                  <select class="exp" id="id_form-3-paciente" name="form-3-paciente">
+                    <option id='change3' value="" selected="selected">---------</option>
+                  </select>
                 <div class="form-group">
                   <label>Calle</label>
                   {{domicilio.calle}}
@@ -181,4 +187,5 @@
 {% endblock content %}
 {% block scripts %}
   <script type="text/javascript" src="{% static 'js/add_paciente.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/values.js'%}"></script>
 {% endblock scripts %}

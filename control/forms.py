@@ -10,6 +10,7 @@ class PacienteForm(forms.ModelForm):
                 attrs = {
                     'class' : 'form-control',
                     'size' : '12',
+                    'id' : 'expedient'
                 }
             ),
             'no_afiliacion' : forms.TextInput(
