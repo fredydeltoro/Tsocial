@@ -6,17 +6,39 @@
   margin-right: auto;
   margin-left: auto;
 }
+.header,.footer{
+  text-align: center;
+  padding: 2em;
+  color: #FFF;
+  h2, h3 {
+    margin: 0;
+  }
+}
+
+.header{
+  background: #6DBCDB;
+  margin-bottom: 2em;
+}
+
+.footer{
+  background: #2C3E50;
+  margin-top: 2em;
+  h3{
+    font-size: 1.2em;
+  }
+}
+
 .box {
   position: relative;
   padding: 2em;
-  border: 2px solid #eee;
+  border: 2px solid #D7DADB;
   border-radius: 3px;
   h3 {
     margin-top: 0;
   }
 }
 .tabs {
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #D7DADB;
   float: left;
   width: 100%;
   margin-bottom: 0;
@@ -43,7 +65,7 @@
     }
   }
   .active{
-    border: 2px solid #eee;
+    border: 2px solid #D7DADB;
     border-bottom: 2px solid #fff;
     border-top: 2px solid #0079be;
     a{
@@ -61,7 +83,7 @@
 }
 
 .tab-content-box {
-  border: 2px solid #eee;
+  border: 2px solid #D7DADB;
   border-top: 0;
   padding: 2em;
   border-radius: 0 0 3px 3px;

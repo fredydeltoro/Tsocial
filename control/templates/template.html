@@ -8,6 +8,8 @@
     {% load static from staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" >
     <link rel="stylesheet" href="{% static 'css/elements.css'%}" >
+    {% block styles %}
+    {% endblock styles %}
   </head>
   <body>
     <header class="header">

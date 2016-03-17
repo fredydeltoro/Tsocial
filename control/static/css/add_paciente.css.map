@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,YAAY;EACV,aAAa,EAAE,IAAI",
+"sources": ["../sass/add_paciente.scss"],
+"names": [],
+"file": "add_paciente.css"
+}

@@ -3,14 +3,17 @@
   Agreagar Paciente
 {% endblock titulo%}
 {% load static from staticfiles %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/add_paciente.css'%}" >
+{% endblock styles %}
 {% block content %}
   <div class="col-md-12">
     <section class="box">
 
-      <h3>Webos Pinche Fer</h3>
+      <h3>Ingreso de Paciente</h3>
 
       <p>
-        Algos mas se me ocurrira que poner
+        Por favor ingrese los datos solicitados
       </p>
 
       <ul class="tabs">
@@ -143,19 +146,34 @@
             </div>
           </div>
           <div class="domicilio" style="display:none">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Calle</label>
+                  {{domicilio.calle}}
+                </div>
 
-            <div class="form-group">
-              <label for="exampleInputEmail1">Huevos</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Carne</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
+                <div class="form-group">
+                  <label>Num interior</label>
+                  {{domicilio.Num_int}}
+                </div>
+              </div>
 
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Num Exterior</label>
+                  {{domicilio.Num_Ext}}
+                </div>
+
+                <div class="form-group">
+                  <label>Colonia</label>
+                  {{domicilio.colonia}}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <input type="submit" name="guardar" class="btn btn-primary" value="Guardar">
       </form>
 
     </section>
