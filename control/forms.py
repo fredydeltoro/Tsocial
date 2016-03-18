@@ -1,5 +1,5 @@
 from django import forms
-from .models import Paciente, DatosPaciente, DomicilioPaciente
+from .models import Paciente, DatosPaciente, DomicilioPaciente, Info_Clinica
 
 class PacienteForm(forms.ModelForm):
     class Meta:
@@ -144,4 +144,36 @@ class DomicilioPacienteForm(forms.ModelForm):
                     'class' : 'form-control',
                 }
             )
+        }
+
+class Info_ClinicaForm(forms.ModelForm):
+    class Meta:
+        fields = '__all__'
+        model = Info_Clinica
+        widgets = {
+            'fecha_internado' : forms.DateTimeInput(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            ),
+            'diagnostico_ingreso' :  forms.Select(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            ),
+            'estado_Salud' : forms.Select(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            ),
+            'servicios' : forms.Select(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            ),
+            'cama' : forms.TextInput(
+                attrs = {
+                    'class' : 'form-control',
+                }
+            ),
         }

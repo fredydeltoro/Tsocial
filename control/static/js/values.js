@@ -6,5 +6,6 @@ $(document).ready(function () {
     $('#change1').attr('value',value)
     $('#change2').attr('value',value)
     $('#change3').attr('value',value)
+    $('#change4').attr('value',value)
   }).change()
 })

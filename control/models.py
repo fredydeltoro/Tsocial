@@ -1,6 +1,6 @@
 from django.db import models
 from catalogos.estadisticos.geograficos.models import Nacionalidad, Entidad, Municipio
-from choices import SEXOS
+from choices import SEXOS, DIAGNOSTICOS_CHOICES, ESTSALUD_CHOICES, SERVSELECT_CHOICES
 
 class Paciente(models.Model):
 	expediente = models.CharField(max_length=12, primary_key=True, unique=True)
@@ -37,5 +37,15 @@ class DomicilioPaciente(models.Model):
 	Num_int = models.CharField(max_length=100)
 	Num_Ext = models.CharField(max_length=100)
 	colonia = models.CharField(max_length=100)
+	def __unicode__(self):
+		return self.paciente.expediente
+
+class Info_Clinica(models.Model):
+	paciente = models.ForeignKey('Paciente')
+	fecha_internado = models.DateField()
+	diagnostico_ingreso = models.CharField(max_length=100,choices=DIAGNOSTICOS_CHOICES)
+	estado_Salud = models.CharField(max_length=100,choices=ESTSALUD_CHOICES)
+	servicios = models.CharField(max_length=100,choices=SERVSELECT_CHOICES)
+	cama = models.CharField(max_length=100)
 	def __unicode__(self):
 		return self.paciente.expediente

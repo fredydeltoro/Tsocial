@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Paciente
-from .forms import PacienteForm, DatosPacienteForm, DomicilioPacienteForm
+from .forms import PacienteForm, DatosPacienteForm, DomicilioPacienteForm, Info_ClinicaForm
 
 def add_paciente(request):
     if request.method ==  'POST':
@@ -10,14 +10,18 @@ def add_paciente(request):
             if Paciente.objects.get(expediente = a):
                 datos = DatosPacienteForm(request.POST or None, prefix='form-2')
                 domicilio = DomicilioPacienteForm(request.POST or None, prefix='form-3')
-                b =  datos.is_valid()
-                c =  domicilio.is_valid()
-                if b and c:
+                info = Info_ClinicaForm(request.POST or None, prefix='form-4')
+                b = datos.is_valid()
+                c = domicilio.is_valid()
+                d = info.is_valid()
+                if b and c and d:
                     datos.save()
                     domicilio.save()
+                    info.save()
                 else:
                     print datos.errors.as_json(escape_html=False)
                     print domicilio.errors.as_json(escape_html=False)
+                    print info.errors.as_json(escape_html=False)
                     Paciente.objects.get(expediente = a).delete()
             else:
                 print "No existe el paciente"
@@ -25,8 +29,10 @@ def add_paciente(request):
             print paciente.errors.as_json(escape_html=False)
             datos = DatosPacienteForm(prefix='form-2')
             domicilio = DomicilioPacienteForm(prefix='form-3')
+            info = Info_ClinicaForm(prefix='form-4')
     else:
         paciente = PacienteForm(prefix='form-1')
         datos = DatosPacienteForm(prefix='form-2')
         domicilio = DomicilioPacienteForm(prefix='form-3')
+        info = Info_ClinicaForm(prefix='form-4')
     return render(request,'add_paciente.html', locals())

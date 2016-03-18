@@ -5,6 +5,7 @@
 {% load static from staticfiles %}
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/add_paciente.css'%}">
+  <link rel="stylesheet" href="{% static 'css/datetime15.css'%}">
 {% endblock styles %}
 {% block content %}
   <div class="col-md-12">
@@ -30,6 +31,9 @@
         </li>
         <li>
           <a href="#" id="domicilio" class="{%if domicilio.errors %}text-danger{%endif%}">Domicilio</a>
+        </li>
+        <li>
+          <a href="#" id="info" class="{%if info.errors %}text-danger{%endif%}">Info Clinica</a>
         </li>
       </ul>
 
@@ -71,7 +75,12 @@
                 </div>
                 <div class="form-group {%if paciente.fec_nac.errors %}has-error{%endif%}">
                   <label>Fecha de Nacimiento</label>
-                  {{paciente.fec_nac}}
+                  <div class="input-group date" id="datetimepicker1">
+                    {{paciente.fec_nac}}
+                    <span class="input-group-addon dropdown-toggle">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
                 </div>
 
                 <div class="form-group {%if paciente.entidad_nac.errors %}has-error{%endif%}">
@@ -183,6 +192,39 @@
               </div>
             </div>
           </div>
+          <div class="info" style="display:none">
+            <div class="row">
+              <div class="col-md-6">
+                  <select class="exp" id="id_form-4-paciente" name="form-4-paciente">
+                    <option id='change4' value="" selected="selected">---------</option>
+                  </select>
+                <div class="form-group {%if info.fecha_internado.errors %}has-error{%endif%}">
+                  <label>Fecha de Ingreso</label>
+                  {{info.fecha_internado}}
+                </div>
+
+                <div class="form-group {%if info.diagnostico_ingreso.errors %}has-error{%endif%}">
+                  <label>Diagnostico de ingreso</label>
+                  {{info.diagnostico_ingreso}}
+                </div>
+                <div class="form-group {%if info.estado_Salud.errors %}has-error{%endif%}">
+                  <label>Estado de Salud</label>
+                  {{info.estado_Salud}}
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group {%if info.servicios.errors %}has-error{%endif%}">
+                  <label>Servicios</label>
+                  {{info.servicios}}
+                </div>
+                <div class="form-group {%if info.cama.errors %}has-error{%endif%}">
+                  <label>Cama</label>
+                  {{info.cama}}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <input type="submit" name="guardar" class="btn btn-primary" value="Guardar">
       </form>
@@ -191,6 +233,9 @@
   </div>
 {% endblock content %}
 {% block scripts %}
-  <script type="text/javascript" src="{% static 'js/add_paciente.js'%}"></script>
   <script type="text/javascript" src="{% static 'js/values.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/momento.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/datetime15.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/add_paciente.js'%}"></script>
+
 {% endblock scripts %}
