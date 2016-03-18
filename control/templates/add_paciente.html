@@ -11,10 +11,15 @@
     <section class="box">
 
       <h3>Ingreso de Paciente</h3>
-
-      <p>
-        Por favor ingrese los datos solicitados en cada una de las pestañas
-      </p>
+      {% if paciente.errors or datos.errors or domicilio.errors %}
+        <p class="alert alert-danger">
+          Hacen falta campos por llenar o estan incorrectos porfavor verifique las pestañas y campos resaltados en <b>rojo</b>
+        </p>
+      {% else %}
+        <p>
+          Por favor ingrese los datos solicitados en cada una de las pestañas
+        </p>
+      {% endif %}
 
       <ul class="tabs">
         <li class="active">
@@ -91,7 +96,7 @@
                   {{paciente.entidad}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if paciente.nacionalidad.errors %}has-error{%endif%}">
                   <label>Nacionalidad</label>
                   {{paciente.nacionalidad}}
                 </div>
@@ -104,44 +109,44 @@
                   <select class="exp" id="id_form-2-paciente" name="form-2-paciente">
                     <option id='change2' value="" selected="selected">---------</option>
                   </select>
-                <div class="form-group">
+                <div class="form-group {%if datos.numero_cel.errors %}has-error{%endif%}">
                   <label>Celular</label>
                   {{datos.numero_cel}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if datos.num_tel_casa.errors %}has-error{%endif%}">
                   <label>Tel. Fijo</label>
                   {{datos.num_tel_casa}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if datos.estado_civil.errors %}has-error{%endif%}">
                   <label>Estado Civil</label>
                   {{datos.estado_civil}}
                 </div>
 
               </div>
               <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group {%if datos.escolaridad.errors %}has-error{%endif%}">
                   <label>Escolaridad</label>
                   {{datos.escolaridad}}
                 </div>
-                <div class="form-group">
+                <div class="form-group {%if datos.ocupacion.errors %}has-error{%endif%}">
                   <label>Ocupacion</label>
                   {{datos.ocupacion}}
                 </div>
-                <div class="form-group">
+                <div class="form-group {%if datos.religion.errors %}has-error{%endif%}">
                   <label>Religion</label>
                   {{datos.religion}}
                 </div>
               </div>
 
               <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group {%if datos.dialecto.errors %}has-error{%endif%}">
                   <label>Dialecto</label>
                   {{datos.dialecto}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if datos.grupo_etnico.errors %}has-error{%endif%}">
                   <label>Grupo Etnico</label>
                   {{datos.grupo_etnico}}
                 </div>
@@ -154,24 +159,24 @@
                   <select class="exp" id="id_form-3-paciente" name="form-3-paciente">
                     <option id='change3' value="" selected="selected">---------</option>
                   </select>
-                <div class="form-group">
+                <div class="form-group {%if domicilio.calle.errors %}has-error{%endif%}">
                   <label>Calle</label>
                   {{domicilio.calle}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if domicilio.Num_int.errors %}has-error{%endif%}">
                   <label>Num interior</label>
                   {{domicilio.Num_int}}
                 </div>
               </div>
 
               <div class="col-md-6">
-                <div class="form-group">
+                <div class="form-group {%if domicilio.Num_Ext.errors %}has-error{%endif%}">
                   <label>Num Exterior</label>
                   {{domicilio.Num_Ext}}
                 </div>
 
-                <div class="form-group">
+                <div class="form-group {%if domicilio.colonia.errors %}has-error{%endif%}">
                   <label>Colonia</label>
                   {{domicilio.colonia}}
                 </div>
