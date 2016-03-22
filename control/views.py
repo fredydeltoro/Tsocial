@@ -1,6 +1,19 @@
-from django.shortcuts import render
-from .models import Paciente
+from django.shortcuts import render, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .models import Paciente, Info_Clinica
 from .forms import PacienteForm, DatosPacienteForm, DomicilioPacienteForm, Info_ClinicaForm
+
+def pacientes(request):
+    pacient_list = Info_Clinica.objects.values('paciente__expediente','paciente__nombre', 'paciente__apaterno', 'fecha_internado', 'cama', )
+    paginator = Paginator(pacient_list, 15)
+    page = request.GET.get('page')
+    try:
+        pacients = paginator.page(page)
+    except PageNotAnInteger:
+        pacients = paginator.page(1)
+    except EmptyPage:
+        pacients = paginator.page(paginator.num_pages)
+    return render(request,'pacientes.html', locals())
 
 def add_paciente(request):
     if request.method ==  'POST':
@@ -18,11 +31,10 @@ def add_paciente(request):
                     datos.save()
                     domicilio.save()
                     info.save()
+                    res = redirect('/')
                 else:
-                    print datos.errors.as_json(escape_html=False)
-                    print domicilio.errors.as_json(escape_html=False)
-                    print info.errors.as_json(escape_html=False)
                     Paciente.objects.get(expediente = a).delete()
+                    res = render(request,'add_paciente.html', locals())
             else:
                 print "No existe el paciente"
         else:
@@ -30,9 +42,11 @@ def add_paciente(request):
             datos = DatosPacienteForm(prefix='form-2')
             domicilio = DomicilioPacienteForm(prefix='form-3')
             info = Info_ClinicaForm(prefix='form-4')
+            res = render(request,'add_paciente.html', locals())
     else:
         paciente = PacienteForm(prefix='form-1')
         datos = DatosPacienteForm(prefix='form-2')
         domicilio = DomicilioPacienteForm(prefix='form-3')
         info = Info_ClinicaForm(prefix='form-4')
-    return render(request,'add_paciente.html', locals())
+        res = render(request,'add_paciente.html', locals())
+    return res

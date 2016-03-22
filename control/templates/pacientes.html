@@ -1,0 +1,71 @@
+{% extends "template.html" %}
+{% block titulo %}
+  Pacientes
+{% endblock titulo %}
+{% block content %}
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Pacientes</h3>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>
+          Expediente
+        </th>
+        <th>
+          Paciente
+        </th>
+        <th>
+          Fecha de Ingreso
+        </th>
+        <th>
+          Cama
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in pacients %}
+        <tr>
+          <td>
+            {{p.paciente__expediente}}
+          </td>
+          <td>
+            {{p.paciente__nombre}} {{p.paciente__apaterno}}
+          </td>
+          <td>
+            {{p.fecha_internado}}
+          </td>
+          <td>
+            {{p.cama}}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <nav>
+  <ul class="pager">
+    {% if pacients.has_previous %}
+    <li>
+      <a href="?page={{ pacients.previous_page_number }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    {% endif %}
+
+    {% for pag in pacients.paginator.page_range  %}
+      <li><a href="?page={{pag}}">{{pag}}</a></li>
+    {% endfor %}
+
+    {% if pacients.has_next %}
+    <li>
+      <a href="?page={{ pacients.next_page_number }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</nav>
+
+</div>
+{% endblock content %}

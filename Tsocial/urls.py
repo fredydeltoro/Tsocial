@@ -8,4 +8,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^agregar/', 'control.views.add_paciente'),
+    url(r'^', 'control.views.pacientes'),
 )
