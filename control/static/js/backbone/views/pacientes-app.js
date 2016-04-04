@@ -1,10 +1,13 @@
-Pacientes.Views.App = Backbone.View.extend({
-  events : {
-    'click' : function () {
-      debugger
-    }
+var view = Backbone.View.extend({
+  'events' : {
+    'click .btn-expediente' : 'algo'
   },
-  initialize : function ($el) {
-    this.$el = $el
-  }
+  algo : function (e) {
+    e.preventDefault()
+    alert('a huevo')
+  },
+  el :$('body'),
+
 })
+
+Pacientes.Views.App = new view()

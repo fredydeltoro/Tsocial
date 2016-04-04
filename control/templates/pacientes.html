@@ -74,25 +74,25 @@
 </div>
 {% endblock content %}
 {% block scripts %}
+<script type="text/javascript">
+  var pacientes = {{data | safe }}
+</script>
   <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-app.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/pacientes.js' %}"></script>
-  <script type="text/javascript">
-    var pacientes = {{data | safe }}
-  </script>
   <script type="text/template" id="tupla-template">
     <tr>
       <td>
-        {{p.paciente__expediente}}
+        <%= paciente__expediente %>
       </td>
       <td>
-        {{p.paciente__nombre}} {{p.paciente__apaterno}}
+        <%= paciente__nombre %> <%= paciente__apaterno %>
       </td>
       <td>
-        {{p.fecha_internado}}
+        <%= fecha_internado %>
       </td>
       <td>
-        {{p.cama}}
+        <%= cama %>
       </td>
     </tr>
   </script>
