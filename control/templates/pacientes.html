@@ -2,6 +2,8 @@
 {% block titulo %}
   Pacientes
 {% endblock titulo %}
+{% load static from staticfiles %}
+
 {% block content %}
 <div class="panel panel-info">
   <div class="panel-heading">
@@ -11,7 +13,7 @@
     <thead>
       <tr>
         <th>
-          Expediente
+          <a class="btn-expediente" href="#">Expediente</a>
         </th>
         <th>
           Paciente
@@ -67,5 +69,31 @@
   </ul>
 </nav>
 
+
+
 </div>
 {% endblock content %}
+{% block scripts %}
+  <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-app.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/pacientes.js' %}"></script>
+  <script type="text/javascript">
+    var pacientes = {{data | safe }}
+  </script>
+  <script type="text/template" id="tupla-template">
+    <tr>
+      <td>
+        {{p.paciente__expediente}}
+      </td>
+      <td>
+        {{p.paciente__nombre}} {{p.paciente__apaterno}}
+      </td>
+      <td>
+        {{p.fecha_internado}}
+      </td>
+      <td>
+        {{p.cama}}
+      </td>
+    </tr>
+  </script>
+{% endblock scripts%}
