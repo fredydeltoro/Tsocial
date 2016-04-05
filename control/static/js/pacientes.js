@@ -4,7 +4,6 @@ $(document).ready(function() {
 		//Agregando Nuevas Vistas
 	var ren = new view({model: model})
   ren.render()
-  $('.table-pacients tbody').append(ren)
 	})
 
 })

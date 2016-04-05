@@ -26,7 +26,7 @@ var view = Backbone.View.extend({
   render : function () {
 		var data = this.model.toJSON()
 		var html = this.template(data)
-		this.$el.find('.table-pacients tbody').html(html)
+		this.$el.find('.table-pacients tbody').append(html)
 	},
 
 })
