@@ -9,7 +9,7 @@
   <div class="panel-heading">
     <h3 class="panel-title">Pacientes</h3>
   </div>
-  <table class="table table-striped">
+  <table class="table table-striped table-pacients">
     <thead>
       <tr>
         <th>
@@ -27,22 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for p in pacients %}
-        <tr>
-          <td>
-            {{p.paciente__expediente}}
-          </td>
-          <td>
-            {{p.paciente__nombre}} {{p.paciente__apaterno}}
-          </td>
-          <td>
-            {{p.fecha_internado}}
-          </td>
-          <td>
-            {{p.cama}}
-          </td>
-        </tr>
-      {% endfor %}
+
     </tbody>
   </table>
   <nav>
@@ -78,22 +63,7 @@
   var pacientes = {{data | safe }}
 </script>
   <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/backbone/collections/pacientes-collection.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-app.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/pacientes.js' %}"></script>
-  <script type="text/template" id="tupla-template">
-    <tr>
-      <td>
-        <%= paciente__expediente %>
-      </td>
-      <td>
-        <%= paciente__nombre %> <%= paciente__apaterno %>
-      </td>
-      <td>
-        <%= fecha_internado %>
-      </td>
-      <td>
-        <%= cama %>
-      </td>
-    </tr>
-  </script>
 {% endblock scripts%}
