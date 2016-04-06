@@ -59,11 +59,31 @@
 </div>
 {% endblock content %}
 {% block scripts %}
-<script type="text/javascript">
-  var pacientes = {{data | safe }}
-</script>
+  <script type="text/javascript">
+    var pacientes = {{data | safe }}
+  </script>
+  <script type="text/javascript">
+    var pacient = {{mas | safe}}
+  </script>
   <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/collections/pacientes-collection.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-app.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/pacientes.js' %}"></script>
+  <script type="text/template" id="tupla-template">
+     <tr>
+       <td>
+        <%= paciente__expediente %>
+       </td>
+       <td>
+        <%= paciente__nombre %> <%= paciente__apaterno %>
+       </td>
+       <td>
+        <%= fecha_internado %>
+       </td>
+       <td>
+        <%= cama %>
+       </td>
+     </tr>
+   </script>
+
 {% endblock scripts%}

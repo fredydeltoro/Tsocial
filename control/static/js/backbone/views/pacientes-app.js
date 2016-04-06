@@ -1,26 +1,17 @@
 var view = Backbone.View.extend({
   'events' : {
-    'click .btn-expediente' : 'algo'
+    'click .btn-expediente' : 'orderby_Exp'
   },
   initialize : function () {
-    this.template = _.template('<tr>'+
-      '<td>'+
-        '<%= paciente__expediente %>'+
-      '</td>'+
-      '<td>'+
-        '<%= paciente__nombre %> <%= paciente__apaterno %>'+
-      '</td>'+
-      '<td>'+
-        '<%= fecha_internado %>'+
-      '</td>'+
-      '<td>'+
-        '<%= cama %>'+
-      '</td>'+
-    '</tr>')
+    this.template = _.template(String($('#tupla-template').html()))
+    this.collection.on('change reset add remove',function () {
+      this.render()
+  	})
   },
-  algo : function (e) {
+  orderby_Exp : function (e) {
     e.preventDefault()
-    alert('tovia nell')
+    e.stopPropagation()
+    this.collection.sortBy('paciente__expediente')
   },
   el :$('body'),
   render : function () {
