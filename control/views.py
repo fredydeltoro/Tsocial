@@ -10,17 +10,7 @@ def pacientes(request):
 
     pacient_list = Info_Clinica.objects.all().values('paciente__expediente','paciente__nombre', 'paciente__apaterno', 'fecha_internado', 'cama')
     data =  json.dumps(list(pacient_list), default=date_handler)
-    paginator = Paginator(pacient_list, 15)
-    page = request.GET.get('page')
-    try:
-        pacients = paginator.page(page)
-        mas = json.dumps(pacients.object_list, default=date_handler)
-    except PageNotAnInteger:
-        pacients = paginator.page(1)
-        mas = json.dumps(pacients.object_list, default=date_handler)
-    except EmptyPage:
-        pacients = paginator.page(paginator.num_pages)
-        mas = json.dumps(pacients.object_list, default=date_handler)
+    
     return render(request,'pacientes.html', locals())
 
 def add_paciente(request):

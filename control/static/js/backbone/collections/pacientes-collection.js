@@ -1,1 +1,5 @@
-var collection = new Backbone.Collection(pacientes)
+var PacientCollection = Backbone.Collection.extend({
+  model : Pacient
+})
+
+var pacientCollection = new PacientCollection(pacientes)

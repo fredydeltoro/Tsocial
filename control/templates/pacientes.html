@@ -26,35 +26,7 @@
         </th>
       </tr>
     </thead>
-    <tbody>
-
-    </tbody>
   </table>
-  <nav>
-  <ul class="pager">
-    {% if pacients.has_previous %}
-    <li>
-      <a href="?page={{ pacients.previous_page_number }}" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    {% endif %}
-
-    {% for pag in pacients.paginator.page_range  %}
-      <li><a href="?page={{pag}}">{{pag}}</a></li>
-    {% endfor %}
-
-    {% if pacients.has_next %}
-    <li>
-      <a href="?page={{ pacients.next_page_number }}" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-    {% endif %}
-  </ul>
-</nav>
-
-
 
 </div>
 {% endblock content %}
@@ -62,28 +34,26 @@
   <script type="text/javascript">
     var pacientes = {{data | safe }}
   </script>
-  <script type="text/javascript">
-    var pacient = {{mas | safe}}
-  </script>
   <script type="text/javascript" src="{% static 'js/init.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/backbone/models/paciente-modelo.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/collections/pacientes-collection.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/backbone/views/paciente-vista.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-vista.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/backbone/views/pacientes-app.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/pacientes.js' %}"></script>
   <script type="text/template" id="tupla-template">
-     <tr>
-       <td>
-        <%= paciente__expediente %>
-       </td>
-       <td>
-        <%= paciente__nombre %> <%= paciente__apaterno %>
-       </td>
-       <td>
-        <%= fecha_internado %>
-       </td>
-       <td>
-        <%= cama %>
-       </td>
-     </tr>
+     <td>
+      <%= paciente__expediente %>
+     </td>
+     <td>
+      <%= paciente__nombre %> <%= paciente__apaterno %>
+     </td>
+     <td>
+      <%= fecha_internado %>
+     </td>
+     <td>
+      <%= cama %>
+     </td>
    </script>
 
 {% endblock scripts%}
