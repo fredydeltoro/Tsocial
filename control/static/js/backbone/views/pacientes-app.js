@@ -1,26 +1,29 @@
 var view = Backbone.View.extend({
   events : {
-    'click .btn-expediente' : 'orderby_Exp'
+    'click .btn-expediente' : function (e) {
+      e.preventDefault()
+      this.orderby_({row : 'paciente__expediente'})
+    },
+    'click .btn-nombre' : function (e) {
+      e.preventDefault()
+      this.orderby_({row : 'paciente__nombre'})
+    },
+    'click .btn-fecha' : function (e) {
+      e.preventDefault()
+      this.orderby_({row : 'fecha_internado'})
+    }
   },
   initialize : function () {
 
   },
-  orderby_Exp : function (e) {
-    e.preventDefault()
-    e.stopPropagation()
-    var x = pacientsView.collection.sortBy('paciente__expediente')
-    pacientsView.collection.models = x
-    console.log(x)
+  orderby_ : function (data) {
+    var new_oreder = pacientsView.collection.sortBy(data.row)
+    pacientsView.collection.models = new_oreder
+    $('.table-pacients tbody tr').remove()
     pacientsView.render()
-    $('.table-pacients').html(pacientsView.el)
+    $('.table-pacients').append(pacientsView.el)
   },
   el :$('body'),
-  render : function () {
-		/*var data = this.model.toJSON()
-		var html = this.template(data)
-		this.$el.find('.table-pacients tbody').append(html)*/
-
-	},
 
 })
 
