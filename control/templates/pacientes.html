@@ -3,30 +3,37 @@
   Pacientes
 {% endblock titulo %}
 {% load static from staticfiles %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/pacientes.css'%}">
+{% endblock styles %}
+
 
 {% block content %}
 <div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">Pacientes</h3>
   </div>
+
   <table class="table table-striped table-pacients">
     <thead>
       <tr>
         <th>
-          <a class="btn-expediente" href="#">Expediente</a>
+          <a class="btn-expediente asc" href="#">Expediente</a>
         </th>
         <th>
-          <a class="btn-nombre" href="#">Paciente</a>
+          <a class="btn-nombre asc" href="#">Paciente</a>
         </th>
         <th>
-          <a class="btn-fecha" href="#">Fecha de Ingreso</a>
+          <a class="btn-fecha asc" href="#">Fecha de Ingreso</a>
         </th>
         <th>
-          Cama
+          <a class="btn-cama asc" href="#">Cama</a>
         </th>
       </tr>
     </thead>
+
   </table>
+
 
 </div>
 {% endblock content %}

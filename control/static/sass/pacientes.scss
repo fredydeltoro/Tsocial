@@ -1,0 +1,27 @@
+.btn-cama,
+.btn-expediente,
+.btn-fecha,
+.btn-nombre {
+    &:focus,
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+.table-pacients {
+    tbody {
+        display: block;
+        height: 350px;
+        overflow: auto;
+    }
+    tbody tr,
+    thead {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        /* even columns width , fix width of table too*/
+    }
+    thead {
+        /* scrollbar is average 1em/16px width, remove it from thead width */
+        width: calc( 100% - 1em );
+    }
+}

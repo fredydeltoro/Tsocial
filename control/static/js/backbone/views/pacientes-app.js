@@ -1,35 +1,41 @@
 var view = Backbone.View.extend({
   events : {
     'click .btn-expediente' : function (e) {
-      this.test(e,{row : 'paciente__expediente'})
+      this.orderby_(e,{row : 'paciente__expediente'})
     },
     'click .btn-nombre' : function (e) {
-      this.orderby_({row : 'paciente__nombre'},e)
+      this.orderby_(e,{row : 'paciente__nombre'})
     },
     'click .btn-fecha' : function (e) {
-      this.orderby_({row : 'fecha_internado'},e)
+      this.orderby_(e,{row : 'fecha_internado'})
+    },
+    'click .btn-cama' : function (e) {
+      this.orderby_(e,{row : 'cama'})
     }
   },
   initialize : function () {
 
   },
-  test : function (e, data) {
+  orderby_ : function (e, data) {
     e.preventDefault()
-    $(this).off('click')
-    alert('first click ' + data.row)
-    $(e.currentTarget).click(
-      function() {
-        alert('second click ' + data.row)
-      }
-    )
-  },
-  orderby_ : function (data, e) {
-    e.preventDefault()
+    var button = $(e.currentTarget)
     var new_oreder = pacientsView.collection.sortBy(data.row)
-    pacientsView.collection.models = new_oreder
-    $('.table-pacients tbody tr').remove()
-    pacientsView.render()
-    $('.table-pacients').append(pacientsView.el)
+    if (button.hasClass('asc')) {
+      pacientsView.collection.models = new_oreder
+      $('.table-pacients tbody tr').remove()
+      pacientsView.render()
+      $('.table-pacients').append(pacientsView.el)
+      button.removeClass('asc').addClass('des')
+      return ;
+    }
+    if (button.hasClass('des')) {
+      pacientsView.collection.models = new_oreder.reverse()
+      $('.table-pacients tbody tr').remove()
+      pacientsView.render()
+      $('.table-pacients').append(pacientsView.el)
+      button.removeClass('des').addClass('asc')
+      return ;
+    }
   },
   el :$('body'),
 
