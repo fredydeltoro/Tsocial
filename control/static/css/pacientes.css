@@ -1,3 +1,8 @@
+.tools-pacients {
+  margin-bottom: 10px; }
+  .tools-pacients .links {
+    float: right; }
+
 .btn-cama:focus, .btn-cama:hover,
 .btn-expediente:focus,
 .btn-expediente:hover,
