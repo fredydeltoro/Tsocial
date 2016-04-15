@@ -2,8 +2,15 @@ var PacientsView = Backbone.View.extend({
   tagName : 'tbody',
   initialize : function () {
     console.log(this.collection)
-    
+
   },
+  search : function () {
+    this.collection.models.filter(function(p){
+      var obj = p.attributes
+      var str = obj.paciente__nombre
+      str.search(/[jos]/)
+    })
+  }
   render : function () {
     this.collection.each(function(model){
 			var pacientView = new PacientView({ model: model })
