@@ -11,6 +11,13 @@ var view = Backbone.View.extend({
     },
     'click .btn-cama' : function (e) {
       this.orderby_(e,{row : 'cama'})
+    },
+    'submit form' : function (e) {
+      e.preventDefault()
+      var nom =  $('input[name=nombre]').val()
+      var apaterno  = $('input[name=a_paterno]').val()
+      var amaterno  = $('input[name=a_materno]').val()
+      pacientsView.search(nom, apaterno, amaterno)
     }
   },
   initialize : function () {
@@ -37,6 +44,7 @@ var view = Backbone.View.extend({
       return ;
     }
   },
+
   el :$('body'),
 
 })
