@@ -15,7 +15,15 @@ var view = Backbone.View.extend({
     'submit form' : 'search',
     'click .clean' : function (e) {
       e.preventDefault()
-      location.reload()
+      $('input[name=nombre]').val('')
+      $('input[name=a_paterno]').val('')
+      $('input[name=a_materno]').val('')
+      $('.table-pacients tbody tr').remove()
+      $('.table-pacients tbody').remove()
+      pacientsView.render()
+      $('.table-pacients').append(pacientsView.el)
+      temppacientView.collection.reset()
+
     }
   },
   initialize : function () {
@@ -26,18 +34,14 @@ var view = Backbone.View.extend({
     var button = $(e.currentTarget)
     var new_oreder = pacientsView.collection.sortBy(data.row)
     if (button.hasClass('asc')) {
-      pacientsView.collection.models = new_oreder
       $('.table-pacients tbody tr').remove()
-      pacientsView.render()
-      $('.table-pacients').append(pacientsView.el)
+      pacientsView.collection.reset(new_oreder)
       button.removeClass('asc').addClass('des')
       return ;
     }
     if (button.hasClass('des')) {
-      pacientsView.collection.models = new_oreder.reverse()
       $('.table-pacients tbody tr').remove()
-      pacientsView.render()
-      $('.table-pacients').append(pacientsView.el)
+      pacientsView.collection.reset(new_oreder.reverse())
       button.removeClass('des').addClass('asc')
       return ;
     }
@@ -48,9 +52,10 @@ var view = Backbone.View.extend({
     var apaterno  = $('input[name=a_paterno]').val()
     var amaterno  = $('input[name=a_materno]').val()
     var x = pacientsView.search(nom, apaterno, amaterno)
-    pacientsView.collection.models = x
     $('.table-pacients tbody tr').remove()
-    pacientsView.render()
+    $('.table-pacients tbody').remove()
+    $('.table-pacients').append(temppacientView.el)
+    temppacientView.collection.reset(x)
   },
 
   el :$('body'),

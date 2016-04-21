@@ -2,6 +2,7 @@ var PacientsView = Backbone.View.extend({
   tagName : 'tbody',
   initialize : function () {
     console.log(this.collection)
+    this.collection.on('reset', this.render, this)
   },
   search : function (nom, apat, amat) {
     var renom = new RegExp(`(${nom})`, 'i')
@@ -61,3 +62,4 @@ var PacientsView = Backbone.View.extend({
 })
 
  var pacientsView = new PacientsView({collection:pacientCollection})
+ var temppacientView = new PacientsView({collection:pacientstempcollection})

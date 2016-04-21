@@ -3,3 +3,4 @@ var PacientCollection = Backbone.Collection.extend({
 })
 
 var pacientCollection = new PacientCollection(pacientes)
+var pacientstempcollection = new PacientCollection()
