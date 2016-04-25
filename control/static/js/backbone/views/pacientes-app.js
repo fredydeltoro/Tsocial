@@ -13,18 +13,7 @@ var view = Backbone.View.extend({
       this.orderby_(e,{row : 'cama'})
     },
     'submit form' : 'search',
-    'click .clean' : function (e) {
-      e.preventDefault()
-      $('input[name=nombre]').val('')
-      $('input[name=a_paterno]').val('')
-      $('input[name=a_materno]').val('')
-      $('.table-pacients tbody tr').remove()
-      $('.table-pacients tbody').remove()
-      pacientsView.render()
-      $('.table-pacients').append(pacientsView.el)
-      temppacientView.collection.reset()
-
-    }
+    'click .clean' : 'clean',
   },
   initialize : function () {
 
@@ -56,6 +45,18 @@ var view = Backbone.View.extend({
     $('.table-pacients tbody').remove()
     $('.table-pacients').append(temppacientView.el)
     temppacientView.collection.reset(x)
+  },
+  clean : function (e) {
+    e.preventDefault()
+    $('input[name=nombre]').val('')
+    $('input[name=a_paterno]').val('')
+    $('input[name=a_materno]').val('')
+    $('.table-pacients tbody tr').remove()
+    $('.table-pacients tbody').remove()
+    pacientsView.render()
+    $('.table-pacients').append(pacientsView.el)
+    temppacientView.collection.reset()
+
   },
 
   el :$('body'),

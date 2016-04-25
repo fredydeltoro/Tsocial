@@ -1,7 +1,5 @@
-.tools-pacients {
-  margin-bottom: 10px; }
-  .tools-pacients .links {
-    float: right; }
+.tools-pacients .filter {
+  display: inline-block; }
 
 .btn-cama:focus, .btn-cama:hover,
 .btn-expediente:focus,

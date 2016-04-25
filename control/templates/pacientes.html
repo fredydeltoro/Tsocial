@@ -9,23 +9,36 @@
 
 
 {% block content %}
-<div class="tools-pacients">
-  <div class="row">
-    <div class="col-md-9">
-      <form action="" class="form-inline">
-        <div class="form-group">
-          <input type="text" name="nombre" class="form-control" placeholder="Nombres">
-          <input type="text" name="a_paterno" class="form-control" placeholder="A Paterno">
-          <input type="text" name="a_materno" class="form-control" placeholder="A Materno">
-        </div>
-        <input class="btn btn-default" type="submit" name="search" value="Buscar">
-        <a href="#" class="btn btn-default clean">Limpiar</a>
-      </form>
-    </div>
-    <div class="col-md-3">
-      <div class="links">
-        <a href="/agregar" class="btn btn-warning"> Ingreso </a>
-        <a href="#" class="btn btn-danger"> Reingreso </a>
+<div class="navbar navbar-default">
+  <div class="tools-pacients collapse navbar-collapse">
+    <div class="row">
+      <div class="col-md-12">
+        <form action="" class="navbar-form navbar-left form-inline">
+          <div class="form-group">
+            <input type="text" name="nombre" class="form-control" placeholder="Nombres">
+            <input type="text" name="a_paterno" class="form-control" placeholder="A Paterno">
+            <input type="text" name="a_materno" class="form-control" placeholder="A Materno">
+          </div>
+          <input class="btn btn-default" type="submit" name="search" value="Buscar">
+        </form>
+        <ul class="nav navbar-nav">
+          <li class="dropdown filter">
+              <a class="btn-filter dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="filter_tag">Filtrar</span>&nbsp
+                  <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="#" class="clean">Limpiar</a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -47,6 +60,9 @@
         </th>
         <th>
           <a class="btn-fecha asc" href="#">Fecha de Ingreso</a>
+        </th>
+        <th>
+          <a class="btn-cama asc" href="#">Servicios</a>
         </th>
         <th>
           <a class="btn-cama asc" href="#">Cama</a>
@@ -78,6 +94,9 @@
      </td>
      <td>
       <%= fecha_internado %>
+     </td>
+     <td>
+      <%= servicios %>
      </td>
      <td>
       <%= cama %>
