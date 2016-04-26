@@ -14,6 +14,7 @@ var view = Backbone.View.extend({
     },
     'submit form' : 'search',
     'click .clean' : 'clean',
+    'click .dropdown-menu li a' : 'filter',
   },
   initialize : function () {
 
@@ -46,8 +47,19 @@ var view = Backbone.View.extend({
     $('.table-pacients').append(temppacientView.el)
     temppacientView.collection.reset(x)
   },
+  filter : function (e) {
+    e.preventDefault()
+    var link = e.currentTarget
+    console.log($(link).text())
+    var x = pacientsView.filter($(link).text())
+    $('.table-pacients tbody tr').remove()
+    $('.table-pacients tbody').remove()
+    $('.table-pacients').append(temppacientView.el)
+    temppacientView.collection.reset(x)
+  },
   clean : function (e) {
     e.preventDefault()
+    $('.btn-filter .filter_tag').text('Filtrar')
     $('input[name=nombre]').val('')
     $('input[name=a_paterno]').val('')
     $('input[name=a_materno]').val('')

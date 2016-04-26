@@ -53,6 +53,9 @@ var PacientsView = Backbone.View.extend({
     console.log(x)
     return x
   },
+  filter : function (str) {
+    return this.collection.filter({servicios:str})
+  },
   render : function () {
     this.collection.each(function(model){
 			var pacientView = new PacientView({ model: model })
