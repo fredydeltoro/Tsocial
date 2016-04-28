@@ -19,7 +19,7 @@ class Paciente(models.Model):
 		return self.expediente
 
 class DatosPaciente(models.Model):
-	paciente = models.ForeignKey('Paciente')
+	paciente = models.OneToOneField('Paciente',primary_key=True)
 	numero_cel = models.CharField(max_length=100)
 	num_tel_casa = models.CharField(max_length=10)
 	estado_civil = models.CharField(max_length=100)
@@ -41,7 +41,7 @@ class DomicilioPaciente(models.Model):
 		return self.paciente.expediente
 
 class Info_Clinica(models.Model):
-	paciente = models.ForeignKey('Paciente')
+	paciente = models.OneToOneField('Paciente',primary_key=True)
 	fecha_internado = models.DateField()
 	diagnostico_ingreso = models.CharField(max_length=100,choices=DIAGNOSTICOS_CHOICES)
 	estado_Salud = models.CharField(max_length=100,choices=ESTSALUD_CHOICES)
