@@ -1,4 +1,8 @@
-$(document).ready(function() {
-  console.log('se cargo bien')
-  window.views.app = new Pacientes.Views.App($('body'))
-})
+var myApp = angular.module('myApp',[]);
+
+myApp.controller('Hello',['$scope',function($scope, $http) {
+    $http.get('/api-ts/pacientes/').
+        success(function(data) {
+            $scope.greeting = data
+        })
+}])
