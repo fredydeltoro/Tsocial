@@ -1,25 +1,56 @@
 {% extends "template.html" %}
-{% block titulo %}
-  Pacientes
-{% endblock titulo %}
+{% block titulo %} Pacientes {% endblock titulo %}
 {% load static from staticfiles %}
-
 {% block content %}
   {% verbatim %}
-  <div ng-app>
-    <div ng-controller="Hello">
-      <p>
-        {{greeting}}
-      </p>
-    <div ng-repeat='pacient in greeting'>
-      <p>
-        {{pacient.nombre}}
-      </p>
+    <div ng-app="pacientsApp">
+        <div ng-controller="pacientsController">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Pacientes</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a class="btn-expediente" href="#">Expediente</a>
+                            </th>
+                            <th>
+                                Paciente
+                            </th>
+                            <th>
+                                Fecha de Ingreso
+                            </th>
+                            <th>
+                                Cama
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat='pacient in pacients'>
+                            <td>
+                                {{pacient.expediente}}
+                            </td>
+                            <td>
+                                {{pacient.nombre}} {{pacient.apaterno}}
+                            </td>
+                            <td>
+                                {{pacient.fecha_internado}}
+                            </td>
+                            <td>
+                                {{pacient.cama}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
-    </div>
-  </div>
   {% endverbatim %}
 {% endblock content %}
 {% block scripts %}
-<script src="{% static 'js/pacientes.js'%}"></script>
+<script src="{% static 'js/pacientesApp.js'%}"></script>
+<script src="{% static 'js/controllers/pacientsController.js'%}"></script>
+<script src="{% static 'js/services/pacients.js'%}"></script>
 {% endblock scripts%}
