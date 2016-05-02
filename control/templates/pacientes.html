@@ -13,21 +13,29 @@
                     <thead>
                         <tr>
                             <th>
-                                <a class="btn-expediente" href="#">Expediente</a>
+                                <a href="#" ng-click="sortType = 'expediente'; sortReverse = !sortReverse">Expediente</a>
+                                <span ng-show="sortType == 'expediente' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                                <span ng-show="sortType == 'expediente' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                             </th>
                             <th>
-                                Paciente
+                              <a href="#" ng-click="sortType = 'nombre'; sortReverse = !sortReverse">Paciente</a>
+                              <span ng-show="sortType == 'nombre' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'nombre' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                             </th>
                             <th>
-                                Fecha de Ingreso
+                              <a href="#" ng-click="sortType = 'fecha_internado'; sortReverse = !sortReverse">Fecha de Ingreso</a>
+                              <span ng-show="sortType == 'fecha_internado' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'fecha_internado' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                             </th>
                             <th>
-                                Cama
+                              <a href="#" ng-click="sortType = 'cama'; sortReverse = !sortReverse">Cama</a>
+                              <span ng-show="sortType == 'cama' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'cama' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='pacient in pacients'>
+                        <tr ng-repeat='pacient in pacients | orderBy:sortType:sortReverse'>
                             <td>
                                 {{pacient.expediente}}
                             </td>
@@ -35,7 +43,7 @@
                                 {{pacient.nombre}} {{pacient.apaterno}}
                             </td>
                             <td>
-                                {{pacient.fecha_internado}}
+                                {{pacient.fecha_internado | date}}
                             </td>
                             <td>
                                 {{pacient.cama}}

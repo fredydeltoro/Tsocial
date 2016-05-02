@@ -5,20 +5,7 @@ from .models import Paciente, Info_Clinica
 from .forms import PacienteForm, DatosPacienteForm, DomicilioPacienteForm, Info_ClinicaForm
 
 def pacientes(request):
-    def date_handler(obj):
-        return obj.isoformat() if hasattr(obj, 'isoformat') else obj
-    
-    pacient_list = Info_Clinica.objects.all().values('paciente__expediente','paciente__nombre', 'paciente__apaterno', 'fecha_internado', 'cama')
-    data =  json.dumps(list(pacient_list), default=date_handler)
-    paginator = Paginator(pacient_list, 15)
-    page = request.GET.get('page')
-    try:
-        pacients = paginator.page(page)
-    except PageNotAnInteger:
-        pacients = paginator.page(1)
-    except EmptyPage:
-        pacients = paginator.page(paginator.num_pages)
-    return render(request,'pacientes.html', locals())
+    return render(request,'pacientes.html')
 
 def add_paciente(request):
     if request.method ==  'POST':
