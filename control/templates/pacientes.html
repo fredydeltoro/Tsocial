@@ -1,63 +1,65 @@
-{% extends "template.html" %}
-{% block titulo %} Pacientes {% endblock titulo %}
-{% load static from staticfiles %}
-{% block content %}
-  {% verbatim %}
-    <div ng-app="pacientsApp">
-        <div ng-controller="pacientsController">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Pacientes</h3>
+{% extends "template.html" %} {% block titulo %} Pacientes {% endblock titulo %} {% load static from staticfiles %} {% block content %} {% verbatim %}
+<div ng-app="pacientsApp">
+    <div ng-controller="pacientsController">
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+                    <input type="text" class="form-control" placeholder="Buscar Paciente" ng-model="searchPacient">
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>
-                                <a href="#" ng-click="sortType = 'expediente'; sortReverse = !sortReverse">Expediente</a>
-                                <span ng-show="sortType == 'expediente' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                                <span ng-show="sortType == 'expediente' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-                            </th>
-                            <th>
-                              <a href="#" ng-click="sortType = 'nombre'; sortReverse = !sortReverse">Paciente</a>
-                              <span ng-show="sortType == 'nombre' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                              <span ng-show="sortType == 'nombre' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-                            </th>
-                            <th>
-                              <a href="#" ng-click="sortType = 'fecha_internado'; sortReverse = !sortReverse">Fecha de Ingreso</a>
-                              <span ng-show="sortType == 'fecha_internado' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                              <span ng-show="sortType == 'fecha_internado' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-                            </th>
-                            <th>
-                              <a href="#" ng-click="sortType = 'cama'; sortReverse = !sortReverse">Cama</a>
-                              <span ng-show="sortType == 'cama' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                              <span ng-show="sortType == 'cama' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat='pacient in pacients | orderBy:sortType:sortReverse'>
-                            <td>
-                                {{pacient.expediente}}
-                            </td>
-                            <td>
-                                {{pacient.nombre}} {{pacient.apaterno}}
-                            </td>
-                            <td>
-                                {{pacient.fecha_internado | date}}
-                            </td>
-                            <td>
-                                {{pacient.cama}}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-
+        </form>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Pacientes</h3>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="sortType = 'expediente'; sortReverse = !sortReverse">Expediente</a>
+                            <span ng-show="sortType == 'expediente' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                            <span ng-show="sortType == 'expediente' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'nombre'; sortReverse = !sortReverse">Paciente</a>
+                            <span ng-show="sortType == 'nombre' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                            <span ng-show="sortType == 'nombre' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'fecha_internado'; sortReverse = !sortReverse">Fecha de Ingreso</a>
+                            <span ng-show="sortType == 'fecha_internado' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                            <span ng-show="sortType == 'fecha_internado' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'cama'; sortReverse = !sortReverse">Cama</a>
+                            <span ng-show="sortType == 'cama' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
+                            <span ng-show="sortType == 'cama' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pacient in pacients | orderBy:sortType:sortReverse | filter:searchPacient">
+                        <td>
+                            {{pacient.expediente}}
+                        </td>
+                        <td>
+                            {{pacient.nombre}} {{pacient.apaterno}}
+                        </td>
+                        <td>
+                            {{pacient.fecha_internado | date}}
+                        </td>
+                        <td>
+                            {{pacient.cama}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+
     </div>
-  {% endverbatim %}
-{% endblock content %}
-{% block scripts %}
+</div>
+{% endverbatim %} {% endblock content %} {% block scripts %}
 <script src="{% static 'js/pacientesApp.js'%}"></script>
 <script src="{% static 'js/controllers/pacientsController.js'%}"></script>
 <script src="{% static 'js/services/pacients.js'%}"></script>

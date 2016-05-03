@@ -1,8 +1,8 @@
 
 app_pacientes.controller('pacientsController',['$scope', 'pacients', function ($scope, pacients) {
   $scope.sortType     = 'fecha_internado'; // set the default sort type
-  $scope.sortReverse  = true;  // set the default sort order
-  $scope.searchFish   = '';
+  $scope.sortReverse  = false;  // set the default sort order
+  $scope.searchPacient   = '';
   pacients.success(function (data) {
     $scope.pacients = data
   })
