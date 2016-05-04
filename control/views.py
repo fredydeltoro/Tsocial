@@ -7,6 +7,9 @@ from .forms import PacienteForm, DatosPacienteForm, DomicilioPacienteForm, Info_
 def pacientes(request):
     return render(request,'pacientes.html')
 
+def paciente(request,id_exp):
+    return render(request,'paciente.html')
+
 def add_paciente(request):
     if request.method ==  'POST':
         paciente = PacienteForm(request.POST or None, prefix='form-1')
