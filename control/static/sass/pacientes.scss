@@ -32,4 +32,12 @@
             }
         }
     }
+    tbody{
+      tr{
+        cursor: pointer;
+        &:hover{
+          background-color: #D9EDF7;
+        }
+      }
+    }
 }

@@ -36,7 +36,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#" ng-click="filters = ''" class="clean">Limpiar</a>
+                            <a href="#" ng-click="filters = ''; $event.preventDefault()" class="clean">Limpiar</a>
                         </li>
                     </ul>
                 </div>
@@ -98,7 +98,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="pacient in pacients | orderBy:sortType:sortReverse | filter:filters: !filters ? false : true | filter:searchPacient">
+                    <tr ng-click="showPacient(pacient.expediente)" ng-repeat="pacient in pacients | orderBy:sortType:sortReverse | filter:filters: !filters ? false : true | filter:searchPacient">
                         <td>
                             {{pacient.expediente}}
                         </td>
@@ -127,7 +127,5 @@
 <script src="{% static 'js/pacientesApp.js'%}"></script>
 <script src="{% static 'js/controllers/pacientsController.js'%}"></script>
 <script src="{% static 'js/services/pacients.js'%}"></script>
-<script src="{% static 'js/vendor/bootstrap.js'%}">
-
-</script>
+<script src="{% static 'js/vendor/bootstrap.js'%}"></script>
 {% endblock scripts%}

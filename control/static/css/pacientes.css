@@ -19,5 +19,9 @@
     text-decoration: none !important; }
   .table-pacients thead tr th a span {
     color: inherit; }
+.table-pacients tbody tr {
+  cursor: pointer; }
+  .table-pacients tbody tr:hover {
+    background-color: #D9EDF7; }
 
 /*# sourceMappingURL=pacientes.css.map */
