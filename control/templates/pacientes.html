@@ -28,15 +28,15 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#" ng-click="filters = 'servselect1'">servselect10</a></li>
-                                <li><a href="#">servselect1</a></li>
-                                <li><a href="#">servselect3</a></li>
+                                <li><a href="#" ng-click="filters = 'servselect10'">servselect10</a></li>
+                                <li><a href="#" ng-click="filters = 'servselect1'">servselect1</a></li>
+                                <li><a href="#" ng-click="filters = 'servselect2'">servselect2</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#" class="clean">Limpiar</a>
+                            <a href="#" ng-click="filters = ''" class="clean">Limpiar</a>
                         </li>
                     </ul>
                 </div>
@@ -51,29 +51,49 @@
                 <thead>
                     <tr>
                         <th>
-                            <a href="#" ng-click="sortType = 'expediente'; sortReverse = !sortReverse">Expediente</a>
-                            <span ng-show="sortType == 'expediente' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                            <span ng-show="sortType == 'expediente' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                            <a href="#" ng-click="order_by($event, 'expediente')">
+                              Expediente
+                              <span ng-show="sortType == 'expediente' && !sortReverse"
+                              class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'expediente' && sortReverse"
+                              class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
                         </th>
                         <th>
-                            <a href="#" ng-click="sortType = 'nombre'; sortReverse = !sortReverse">Paciente</a>
-                            <span ng-show="sortType == 'nombre' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                            <span ng-show="sortType == 'nombre' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                            <a href="#" ng-click="order_by($event, 'nombre')">
+                              Paciente
+                              <span ng-show="sortType == 'nombre' && !sortReverse"
+                              class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'nombre' && sortReverse"
+                              class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
                         </th>
                         <th>
-                            <a href="#" ng-click="sortType = 'fecha_internado'; sortReverse = !sortReverse">Fecha de Ingreso</a>
-                            <span ng-show="sortType == 'fecha_internado' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                            <span ng-show="sortType == 'fecha_internado' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                            <a href="#" ng-click="order_by($event, 'fecha_internado')">
+                              Fecha de Ingreso
+                              <span ng-show="sortType == 'fecha_internado' && !sortReverse"
+                              class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'fecha_internado' && sortReverse"
+                              class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
                         </th>
                         <th>
-                            <a href="#" ng-click="sortType = 'servicios'; sortReverse = !sortReverse">Servicios</a>
-                            <span ng-show="sortType == 'servicios' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                            <span ng-show="sortType == 'servicios' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                            <a href="#" ng-click="order_by($event, 'servicios')">
+                              Servicios
+                              <span ng-show="sortType == 'servicios' && !sortReverse"
+                              class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'servicios' && sortReverse"
+                              class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
                         </th>
                         <th>
-                            <a href="#" ng-click="sortType = 'cama'; sortReverse = !sortReverse">Cama</a>
-                            <span ng-show="sortType == 'cama' && !sortReverse" class="glyphicon glyphicon-chevron-down"></span>
-                            <span ng-show="sortType == 'cama' && sortReverse" class="glyphicon glyphicon-chevron-up"></span>
+                            <a href="#" ng-click="order_by($event, 'cama')">
+                              Cama
+                              <span ng-show="sortType == 'cama' && !sortReverse"
+                              class="glyphicon glyphicon-chevron-down"></span>
+                              <span ng-show="sortType == 'cama' && sortReverse"
+                              class="glyphicon glyphicon-chevron-up"></span>
+                            </a>
                         </th>
                     </tr>
                 </thead>
@@ -101,7 +121,9 @@
 
     </div>
 </div>
-{% endverbatim %} {% endblock content %} {% block scripts %}
+{% endverbatim %}
+{% endblock content %}
+{% block scripts %}
 <script src="{% static 'js/pacientesApp.js'%}"></script>
 <script src="{% static 'js/controllers/pacientsController.js'%}"></script>
 <script src="{% static 'js/services/pacients.js'%}"></script>

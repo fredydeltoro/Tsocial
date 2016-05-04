@@ -1,6 +1,6 @@
-.search{
-  margin-top: 8px;
-  margin-bottom: 8px;
+.search {
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 .table-pacients {
     tbody {
@@ -18,5 +18,18 @@
     thead {
         /* scrollbar is average 1em/16px width, remove it from thead width */
         width: calc( 100% - 1em );
+        tr {
+            th {
+                a {
+                    &:focus,
+                    &:hover {
+                        text-decoration: none !important;
+                    }
+                    span{
+                      color: inherit;
+                    }
+                }
+            }
+        }
     }
 }
