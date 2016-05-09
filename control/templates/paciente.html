@@ -2,7 +2,25 @@
 {% block titulo %}
   Paciente
 {% endblock titulo %}
+{% load static %}
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/sd-admin.css' %}">
+{% endblock styles %}
 
 {% block content %}
-  <h1>Paciente</h1>
+  <div class="contenedor">
+    <div class="row">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="active"><a href="#">algo</a></li>
+          <li><a href="#">algo</a></li>
+          <li><a href="#">algo</a></li>
+          <li><a href="#">algo</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+
+      </div>
+    </div>
+  </div>
 {% endblock content %}
