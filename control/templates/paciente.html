@@ -8,19 +8,27 @@
 {% endblock styles %}
 
 {% block content %}
-  <div class="contenedor">
-    <div class="row">
-      <div class="col-md-3">
-        <ul class="nav nav-pills nav-stacked">
-          <li class="active"><a href="#">algo</a></li>
-          <li><a href="#">algo</a></li>
-          <li><a href="#">algo</a></li>
-          <li><a href="#">algo</a></li>
-        </ul>
-      </div>
-      <div class="col-md-9">
+  <div ng-app="pacientApp">
+    <div class="contenedor">
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active"><a href="#">algo</a></li>
+            <li><a href="#">algo</a></li>
+            <li><a href="#">algo</a></li>
+            <li><a href="#">algo</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <div ng-view>
 
+          </div>
+        </div>
       </div>
     </div>
   </div>
 {% endblock content %}
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/pacienteApp.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/controllers/pacientController.js'%}"></script>
+{% endblock scripts %}

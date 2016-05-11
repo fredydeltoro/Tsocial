@@ -10,7 +10,7 @@ app_pacientes.controller('pacientsController',['$scope', 'pacients', function ($
     $scope.sortReverse = !$scope.sortReverse
   }
   $scope.showPacient = function (pacient) {
-    window.location = '/paciente/' + pacient + '/'
+    window.location = '/paciente/' + pacient + '/settings'
   }
   pacients.success(function (data) {
     $scope.pacients = data
