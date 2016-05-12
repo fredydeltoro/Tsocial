@@ -6,8 +6,10 @@
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/sd-admin.css' %}">
 {% endblock styles %}
+{% static "views/settings.html" %}
 
 {% block content %}
+{% verbatim %}
   <div ng-app="pacientApp">
     <div class="contenedor">
       <div class="row">
@@ -27,6 +29,7 @@
       </div>
     </div>
   </div>
+{% endverbatim %}
 {% endblock content %}
 {% block scripts %}
 <script type="text/javascript" src="{% static 'js/pacienteApp.js'%}"></script>
