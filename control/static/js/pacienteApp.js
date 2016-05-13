@@ -1,29 +1,31 @@
-app_paciente = angular.module('pacientApp',['ngRoute'])
+app_paciente = angular.module('pacientApp',['ui.router'])
 
-app_paciente.config(function ($routeProvider, $locationProvider) {
-  $routeProvider
-  .when('/paciente/012479/perfil/',{
+app_paciente.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+  $urlRouterProvider.otherwise('/paciente/{id:int}/perfil/')
+  $stateProvider
+  .state('Perfil',{
+    url : '/paciente/{id:int}/perfil/',
     templateUrl : '../../../static/views/perfil.html',
     controller : 'pacientPerfil'
   })
-  .when('/paciente/012479/datos/',{
+  .state('Datos',{
+    url : '/paciente/{id:int}/datos/',
     templateUrl : '../../../static/views/datos.html',
     controller : 'pacientPerfil'
   })
-  .when('/paciente/012479/domicilio/',{
+  .state('Domicilio',{
+    url : '/paciente/{id:int}/domicilio/',
     templateUrl : '../../../static/views/domicilio.html',
     controller : 'pacientPerfil'
   })
-  .when('/paciente/012479/info/',{
+  .state('Info',{
+    url : '/paciente/{id:int}/info/',
     templateUrl : '../../../static/views/info.html',
     controller : 'pacientPerfil'
   })
-  .otherwise({
-    redirectTo : '/paciente/012479/perfil/'
-  })
-
   $locationProvider.html5Mode({
     enabled: true,
     requireBase: false
   })
+
 })

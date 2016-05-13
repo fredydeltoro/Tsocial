@@ -16,21 +16,21 @@
           <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
               <li ng-class="{active : tab == 1}">
-                <a ng-click="tab = 1" href="/paciente/012479/perfil/">Perfil</a>
+                <a ng-click="tab = 1" ui-sref="Perfil({id:id})">Perfil</a>
               </li>
               <li ng-class="{active : tab == 2}">
-                <a ng-click="tab = 2" href="/paciente/012479/datos/">Datos Paciente</a>
+                <a ng-click="tab = 2" ui-sref="Datos({id:id})">Datos Paciente</a>
               </li>
               <li ng-class="{active : tab == 3}">
-                <a ng-click="tab = 3" href="/paciente/012479/domicilio/">Domicilio</a>
+                <a ng-click="tab = 3" ui-sref="Domicilio({id:id})">Domicilio</a>
               </li>
               <li ng-class="{active : tab == 4}">
-                <a ng-click="tab = 4" href="/paciente/012479/info/">Info Clinica</a>
+                <a ng-click="tab = 4" ui-sref="Info({id:id})">Info Clinica</a>
               </li>
             </ul>
           </div>
           <div class="col-md-9">
-            <div ng-view>
+            <div ui-view>
 
             </div>
           </div>
