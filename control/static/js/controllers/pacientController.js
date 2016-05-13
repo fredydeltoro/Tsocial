@@ -1,5 +1,4 @@
-app_paciente.controller('pacientController',['$scope','$route', '$routeParams', '$location',
-function ($scope,$route, $routeParams, $location) {
-  $scope.$location = $location
-  console.log($location.path())
+app_paciente.controller('pacientController',['$scope',
+function ($scope) {
+  $scope.tab = 1
 }])

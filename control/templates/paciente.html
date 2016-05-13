@@ -6,24 +6,33 @@
 {% block styles %}
   <link rel="stylesheet" href="{% static 'css/sd-admin.css' %}">
 {% endblock styles %}
-{% static "views/settings.html" %}
 
 {% block content %}
 {% verbatim %}
   <div ng-app="pacientApp">
-    <div class="contenedor">
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="nav nav-pills nav-stacked">
-            <li class="active"><a href="#">algo</a></li>
-            <li><a href="#">algo</a></li>
-            <li><a href="#">algo</a></li>
-            <li><a href="#">algo</a></li>
-          </ul>
-        </div>
-        <div class="col-md-9">
-          <div ng-view>
+    <div ng-controller="pacientController">
+      <div class="contenedor">
+        <div class="row">
+          <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+              <li ng-class="{active : tab == 1}">
+                <a ng-click="tab = 1" href="/paciente/012479/perfil/">Perfil</a>
+              </li>
+              <li ng-class="{active : tab == 2}">
+                <a ng-click="tab = 2" href="/paciente/012479/datos/">Datos Paciente</a>
+              </li>
+              <li ng-class="{active : tab == 3}">
+                <a ng-click="tab = 3" href="/paciente/012479/domicilio/">Domicilio</a>
+              </li>
+              <li ng-class="{active : tab == 4}">
+                <a ng-click="tab = 4" href="/paciente/012479/info/">Info Clinica</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-9">
+            <div ng-view>
 
+            </div>
           </div>
         </div>
       </div>
@@ -34,4 +43,5 @@
 {% block scripts %}
 <script type="text/javascript" src="{% static 'js/pacienteApp.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/controllers/pacientController.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/controllers/pacientPerfil.js'%}"></script
 {% endblock scripts %}
