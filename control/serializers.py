@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Info_Clinica
+from .models import Info_Clinica, Paciente
 
 class PacienteSerializer(serializers.HyperlinkedModelSerializer):
     expediente = serializers.CharField(source = 'paciente.expediente', read_only=True)
@@ -9,3 +9,8 @@ class PacienteSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Info_Clinica
         fields = ('expediente', 'nombre', 'apaterno', 'amaterno', 'fecha_internado', 'servicios', 'cama')
+
+class PerfilSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Paciente
+        fields = '__all__'

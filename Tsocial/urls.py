@@ -1,10 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from control.viewsets import PacientesViewSet
+from control.viewsets import PacientesViewSet, PerfilViewSet
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'pacientes', PacientesViewSet)
+router.register(r'perfil', PerfilViewSet)
 
 urlpatterns = patterns('',
     # Examples:
