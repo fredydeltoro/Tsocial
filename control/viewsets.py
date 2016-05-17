@@ -1,5 +1,5 @@
-from .models import Info_Clinica, Paciente
-from .serializers import PacienteSerializer, PerfilSerializer
+from .models import Info_Clinica, Paciente, DatosPaciente, DomicilioPaciente
+from .serializers import PacienteSerializer, PerfilSerializer, DatosSerializer, DomicilioSerializer
 from rest_framework import viewsets
 
 class PacientesViewSet(viewsets.ReadOnlyModelViewSet):
@@ -9,3 +9,11 @@ class PacientesViewSet(viewsets.ReadOnlyModelViewSet):
 class PerfilViewSet(viewsets.ModelViewSet):
     serializer_class = PerfilSerializer
     queryset = Paciente.objects.all()
+
+class DatosViewSet(viewsets.ModelViewSet):
+    serializer_class = DatosSerializer
+    queryset = DatosPaciente.objects.all()
+
+class DomicilioViewSet(viewsets.ModelViewSet):
+    serializer_class = DomicilioSerializer
+    queryset = DomicilioPaciente.objects.all()

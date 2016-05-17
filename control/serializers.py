@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Info_Clinica, Paciente
+from .models import Info_Clinica, Paciente, DatosPaciente, DomicilioPaciente
 
 class PacienteSerializer(serializers.HyperlinkedModelSerializer):
     expediente = serializers.CharField(source = 'paciente.expediente', read_only=True)
@@ -11,6 +11,17 @@ class PacienteSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('expediente', 'nombre', 'apaterno', 'amaterno', 'fecha_internado', 'servicios', 'cama')
 
 class PerfilSerializer(serializers.ModelSerializer):
+    direccion = serializers.StringRelatedField(many=True)
     class Meta:
         model = Paciente
+        fields = '__all__'
+
+class DatosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DatosPaciente
+        fields = '__all__'
+
+class DomicilioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DomicilioPaciente
         fields = '__all__'

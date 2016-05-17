@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-from control.viewsets import PacientesViewSet, PerfilViewSet
+from control.viewsets import PacientesViewSet, PerfilViewSet, DatosViewSet, DomicilioViewSet
 from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 router.register(r'pacientes', PacientesViewSet)
 router.register(r'perfil', PerfilViewSet)
+router.register(r'datos', DatosViewSet)
+router.register(r'domicilio', DomicilioViewSet)
 
 urlpatterns = patterns('',
     # Examples:

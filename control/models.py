@@ -32,13 +32,13 @@ class DatosPaciente(models.Model):
 		return self.paciente.expediente
 
 class DomicilioPaciente(models.Model):
-	paciente = models.ForeignKey('Paciente')
+	paciente = models.ForeignKey('Paciente', related_name='direccion')
 	calle = models.CharField(max_length=100)
 	Num_int = models.CharField(max_length=100)
 	Num_Ext = models.CharField(max_length=100)
 	colonia = models.CharField(max_length=100)
 	def __unicode__(self):
-		return self.paciente.expediente
+		return '%s %s %s %s %s' % (self.paciente.expediente, self.calle, self.Num_int, self.Num_Ext, self.colonia)
 
 class Info_Clinica(models.Model):
 	paciente = models.OneToOneField('Paciente',primary_key=True)
