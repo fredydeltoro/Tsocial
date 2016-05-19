@@ -11,7 +11,6 @@ class PacienteSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('expediente', 'nombre', 'apaterno', 'amaterno', 'fecha_internado', 'servicios', 'cama')
 
 class PerfilSerializer(serializers.ModelSerializer):
-    direccion = serializers.StringRelatedField(many=True)
     class Meta:
         model = Paciente
         fields = '__all__'
@@ -24,4 +23,10 @@ class DatosSerializer(serializers.ModelSerializer):
 class DomicilioSerializer(serializers.ModelSerializer):
     class Meta:
         model = DomicilioPaciente
+        fields = '__all__'
+
+
+class InfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Info_Clinica
         fields = '__all__'

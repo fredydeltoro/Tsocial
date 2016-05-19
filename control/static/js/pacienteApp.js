@@ -1,7 +1,8 @@
 app_paciente = angular.module('pacientApp',['ui.router'])
 
 app_paciente.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-  var x = 123
+  var location = window.location.pathname
+  var x = String(location.split('/')[2])
   $urlRouterProvider.otherwise('/paciente/'+x+'/perfil/')
   $stateProvider
   .state('Perfil',{
@@ -12,17 +13,17 @@ app_paciente.config(function ($stateProvider, $urlRouterProvider, $locationProvi
   .state('Datos',{
     url : '/paciente/:id/datos/',
     templateUrl : '../../../static/views/datos.html',
-    controller : 'pacientPerfil'
+    controller : 'pacientDatos'
   })
   .state('Domicilio',{
     url : '/paciente/:id/domicilio/',
     templateUrl : '../../../static/views/domicilio.html',
-    controller : 'pacientPerfil'
+    controller : 'pacientDomicilio'
   })
   .state('Info',{
     url : '/paciente/:id/info/',
     templateUrl : '../../../static/views/info.html',
-    controller : 'pacientPerfil'
+    controller : 'pacientInfo'
   })
   $locationProvider.html5Mode({
     enabled: true,

@@ -78,3 +78,10 @@
   color: #a94442 !important; }
 
 /*# sourceMappingURL=elements.css.map */
+
+.header-page{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding-bottom: 9px;
+    border-bottom: 2px solid #eee;
+}

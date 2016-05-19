@@ -4,7 +4,6 @@
 {% endblock titulo %}
 {% load static %}
 {% block styles %}
-  <link rel="stylesheet" href="{% static 'css/sd-admin.css' %}">
 {% endblock styles %}
 
 {% block content %}
@@ -15,16 +14,16 @@
         <div class="row">
           <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
-              <li ng-class="{active : tab == 1}">
+              <li ng-class="{active : tab == 1 || tab =='perfil'}">
                 <a ng-click="tab = 1" ui-sref="Perfil({id:id})">Perfil</a>
               </li>
-              <li ng-class="{active : tab == 2}">
+              <li ng-class="{active : tab == 2 || tab =='datos'}">
                 <a ng-click="tab = 2" ui-sref="Datos({id:id})">Datos Paciente</a>
               </li>
-              <li ng-class="{active : tab == 3}">
+              <li ng-class="{active : tab == 3 || tab =='domicilio'}">
                 <a ng-click="tab = 3" ui-sref="Domicilio({id:id})">Domicilio</a>
               </li>
-              <li ng-class="{active : tab == 4}">
+              <li ng-class="{active : tab == 4 || tab =='info'}">
                 <a ng-click="tab = 4" ui-sref="Info({id:id})">Info Clinica</a>
               </li>
             </ul>
@@ -44,5 +43,11 @@
 <script type="text/javascript" src="{% static 'js/pacienteApp.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/controllers/pacientController.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/controllers/pacientPerfil.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/controllers/pacientDatos.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/controllers/pacientInfo.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/controllers/pacientDomicilio.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/services/perfil.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/services/datos.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/services/info.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/services/domicilio.js'%}"></script>
 {% endblock scripts %}

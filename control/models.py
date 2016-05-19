@@ -32,7 +32,7 @@ class DatosPaciente(models.Model):
 		return self.paciente.expediente
 
 class DomicilioPaciente(models.Model):
-	paciente = models.ForeignKey('Paciente', related_name='direccion')
+	paciente = models.ForeignKey('Paciente', primary_key=True)
 	calle = models.CharField(max_length=100)
 	Num_int = models.CharField(max_length=100)
 	Num_Ext = models.CharField(max_length=100)
