@@ -1,14 +1,140 @@
-<div>
-  <h3 class="header-page">Perfil</h3>
-  <h4>{{paciente.nombre}} {{paciente.apaterno}} {{paciente.amaterno}}</h4>
+<div class="perfil">
+  <h3 class="header-page">{{paciente.nombre}} {{paciente.apaterno}} {{paciente.amaterno}}</h3>
   <ul>
     <li>
-      <strong>CURP:</strong> {{paciente.curp}}
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>CURP:</strong>
+          </div>
+          <div class="content">
+            {{paciente.curp}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
     </li>
-    <li>{{paciente.expediente}}</li>
-    <li>{{paciente.no_afiliacion}}</li>
-    <li>{{paciente.curp}}</li>
-    <li>{{paciente.curp}}</li>
-    <li>{{paciente.curp}}</li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Expediente:</strong>
+          </div>
+          <div class="content">
+            {{paciente.expediente}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>No Afiliación:</strong>
+          </div>
+          <div class="content">
+            {{paciente.no_afiliacion}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Sexo:</strong>
+          </div>
+          <div class="content">
+            {{paciente.sexo}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Fecha de Nacimiento:</strong>
+          </div>
+          <div class="content">
+            {{paciente.fec_nac | date}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Entidad de Nacimiento:</strong>
+          </div>
+          <div class="content">
+            {{paciente.entidad_nac}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Nacionalidad:</strong>
+          </div>
+          <div class="content">
+            {{paciente.nacionalidad}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Entidad:</strong>
+          </div>
+          <div class="content">
+            {{paciente.entidad}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="display">
+        <div class="info">
+          <div class="etiqueta">
+            <strong>Municipio:</strong>
+          </div>
+          <div class="content">
+            {{paciente.municipio}}
+          </div>
+        </div>
+        <div class="editar">
+          <a href="#" class="btn btn-success">Editar</a>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>

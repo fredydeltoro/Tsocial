@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,UAAE;EACA,UAAU,EAAE,IAAI;EAChB,aAAE;IACA,OAAO,EAAE,IAAI;IACb,aAAa,EAAE,cAAc;IAE3B,4BAAK;MACH,OAAO,EAAE,YAAY;IAEvB,8BAAO;MACL,OAAO,EAAE,YAAY;MACrB,KAAK,EAAE,KAAK",
+"sources": ["../sass/paciente.scss"],
+"names": [],
+"file": "paciente.css"
+}
