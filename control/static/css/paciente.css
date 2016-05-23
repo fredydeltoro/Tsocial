@@ -1,12 +1,12 @@
 .perfil ul {
   list-style: none; }
   .perfil ul li {
-    padding: 20px;
+    padding: 15px;
     border-bottom: 1px solid #eee; }
     .perfil ul li .display .info {
       display: inline-block; }
-    .perfil ul li .display .editar {
-      display: inline-block;
-      float: right; }
 
-/*# sourceMappingURL=paciente.css.map */
+.form-editar {
+  position: fixed;
+  z-index: 1000;
+  top: 20vh; }

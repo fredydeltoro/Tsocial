@@ -1,140 +1,143 @@
-<div class="perfil">
+<div class="perfil row">
   <h3 class="header-page">{{paciente.nombre}} {{paciente.apaterno}} {{paciente.amaterno}}</h3>
-  <ul>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>CURP:</strong>
-          </div>
-          <div class="content">
-            {{paciente.curp}}
-          </div>
-        </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Expediente:</strong>
-          </div>
-          <div class="content">
-            {{paciente.expediente}}
+  <div class="col-md-10">
+    <ul>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>CURP:</strong>
+            </div>
+            <div class="content">
+              {{paciente.curp}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>No Afiliación:</strong>
-          </div>
-          <div class="content">
-            {{paciente.no_afiliacion}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Expediente:</strong>
+            </div>
+            <div class="content">
+              {{paciente.expediente}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Sexo:</strong>
-          </div>
-          <div class="content">
-            {{paciente.sexo}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>No Afiliación:</strong>
+            </div>
+            <div class="content">
+              {{paciente.no_afiliacion}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Fecha de Nacimiento:</strong>
-          </div>
-          <div class="content">
-            {{paciente.fec_nac | date}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Sexo:</strong>
+            </div>
+            <div class="content">
+              {{paciente.sexo}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Entidad de Nacimiento:</strong>
-          </div>
-          <div class="content">
-            {{paciente.entidad_nac}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Fecha de Nacimiento:</strong>
+            </div>
+            <div class="content">
+              {{paciente.fec_nac | date}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Nacionalidad:</strong>
-          </div>
-          <div class="content">
-            {{paciente.nacionalidad}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Entidad de Nacimiento:</strong>
+            </div>
+            <div class="content">
+              {{paciente.entidad_nac}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Entidad:</strong>
-          </div>
-          <div class="content">
-            {{paciente.entidad}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Nacionalidad:</strong>
+            </div>
+            <div class="content">
+              {{paciente.nacionalidad}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="display">
-        <div class="info">
-          <div class="etiqueta">
-            <strong>Municipio:</strong>
-          </div>
-          <div class="content">
-            {{paciente.municipio}}
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Entidad:</strong>
+            </div>
+            <div class="content">
+              {{paciente.entidad}}
+            </div>
           </div>
         </div>
-        <div class="editar">
-          <a href="#" class="btn btn-success">Editar</a>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Municipio:</strong>
+            </div>
+            <div class="content">
+              {{paciente.municipio}}
+            </div>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-2">
+    <a href="#" ng-click="form = 1" class="btn btn-info">Editar Perfil</a>
+  </div>
 </div>
+
+<div class="form-editar" tabindex="-1" role="dialog" ng-show="form === 1">
+  <form class="" action="" method="post">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" ng-click="form=0" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+          <div class="form-group">
+            <label for="curp">CURP</label>
+            <input type="text"class="form-control" size="18" name="curp" value="">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" ng-click="form = 0" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+        <input type="submit" name="name" class="btn btn-primary" value="Guardar Cambios">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+  </form>
+</div><!-- /.modal -->
