@@ -1,6 +1,8 @@
 app_paciente = angular.module('pacientApp',['ui.router'])
 
-app_paciente.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+app_paciente.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+  $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
   var location = window.location.pathname
   var x = String(location.split('/')[2])
   $urlRouterProvider.otherwise('/paciente/'+x+'/perfil/')

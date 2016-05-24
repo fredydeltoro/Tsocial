@@ -118,7 +118,7 @@
 </div>
 
 <div class="form-editar" tabindex="-1" role="dialog" ng-show="form === 1">
-  <form class="" action="" method="post">
+  <form class="" action="" ng-submit="submit(); $event.preventDefault()">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -129,7 +129,7 @@
         <div class="form">
           <div class="form-group">
             <label for="curp">CURP</label>
-            <input type="text"class="form-control" size="18" name="curp" value="">
+            <input type="text"class="form-control" size="18" name="curp" value="" ng-model="curp">
           </div>
         </div>
       </div>
