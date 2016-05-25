@@ -16,5 +16,8 @@
 .form-editar{
   position: fixed;
   z-index: 1000;
-  top: 20vh;
+  top: 5vh;
+  .modal-content{
+    width: 800px;
+  }
 }

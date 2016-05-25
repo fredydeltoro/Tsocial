@@ -113,28 +113,98 @@
     </ul>
   </div>
   <div class="col-md-2">
-    <a href="#" ng-click="form = 1" class="btn btn-info">Editar Perfil</a>
+    <a href="#" ng-click="form = true" class="btn btn-info">Editar Perfil</a>
   </div>
 </div>
 
-<div class="form-editar" tabindex="-1" role="dialog" ng-show="form === 1">
+<div class="form-editar" tabindex="-1" role="dialog" ng-show="form">
   <form class="" action="" ng-submit="submit(); $event.preventDefault()">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <a href="#" ng-click="form=0" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+        <a href="#" ng-click="form=false" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
         <h4 class="modal-title">Modal title</h4>
       </div>
       <div class="modal-body">
         <div class="form">
           <div class="form-group">
-            <label for="curp">CURP</label>
-            <input type="text"class="form-control" size="18" name="curp" value="" ng-model="curp">
+            <div class="paciente">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group {%if paciente.expediente.errors %}has-error{%endif%}">
+                    <label>Expediente</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.no_afiliacion.errors %}has-error{%endif%}">
+                    <label>No. de Afiliacion</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.nombre.errors %}has-error{%endif%}">
+                    <label>Nombre</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.apaterno.errors %}has-error{%endif%}">
+                    <label>A Paterno</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group {%if paciente.amaterno.errors %}has-error{%endif%}">
+                    <label>A Materno</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.sexo.errors %}has-error{%endif%}">
+                    <label>Sexo</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+                  <div class="form-group {%if paciente.fec_nac.errors %}has-error{%endif%}">
+                    <label>Fecha de Nacimiento</label>
+                    <div class="input-group date" id="datetimepicker1">
+                      <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                      <span class="input-group-addon dropdown-toggle">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="form-group {%if paciente.entidad_nac.errors %}has-error{%endif%}">
+                    <label>Entidad de Nacimiento</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group {%if paciente.curp.errors %}has-error{%endif%}">
+                    <label>CURP</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.municipio.errors %}has-error{%endif%}">
+                    <label>Municipio</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.entidad.errors %}has-error{%endif%}">
+                    <label>Entidad</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+
+                  <div class="form-group {%if paciente.nacionalidad.errors %}has-error{%endif%}">
+                    <label>Nacionalidad</label>
+                    <input type="text"class="form-control" id="nombre" ng-model="nombre">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <a href="#" ng-click="form = 0" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+        <a href="#" ng-click="form = false" class="btn btn-default" data-dismiss="modal">Cerrar</a>
         <input type="submit" name="name" class="btn btn-primary" value="Guardar Cambios">
       </div>
     </div><!-- /.modal-content -->
