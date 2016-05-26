@@ -10,7 +10,7 @@ app_paciente.factory('perfil', ['$http', function($http) {
     })
   }
   Pacient.putPacient = function (id, data) {
-    return $http.patch('/api-ts/perfil/' +id+'/', data)
+    return $http.put('/api-ts/perfil/' +id+'/', data)
     .success(function (response) {
         return response.status
       })
