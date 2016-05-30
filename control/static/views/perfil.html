@@ -113,12 +113,15 @@
     </ul>
   </div>
   <div class="col-md-2">
-    <a href="#" ng-click="form = true" class="btn btn-info">Editar Perfil</a>
+    <a href="#" ng-click="form = true" class="btn btn-info">
+      <i class="glyphicon glyphicon-edit"></i>
+       Editar Perfil
+     </a>
   </div>
 </div>
 
 <div class="form-editar" tabindex="-1" role="dialog" ng-show="form">
-  <form class="" action="" ng-submit="submit(); $event.preventDefault()">
+  <form class="" action="" ng-submit="update_perfil($event)">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

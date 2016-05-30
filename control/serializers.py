@@ -18,7 +18,7 @@ class PerfilSerializer(serializers.ModelSerializer):
 class DatosSerializer(serializers.ModelSerializer):
     class Meta:
         model = DatosPaciente
-        fields = '__all__'
+        fields = ('numero_cel','num_tel_casa','estado_civil','escolaridad','ocupacion','religion','grupo_etnico','dialecto')
 
 class DomicilioSerializer(serializers.ModelSerializer):
     class Meta:

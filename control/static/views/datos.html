@@ -1,6 +1,176 @@
-<div>
-  <h3>Datos</h3>
-  <p>
-    {{datos}}
-  </p>
+<div class="perfil row">
+  <h3 class="header-page">{{paciente.nombre}} {{paciente.apaterno}} {{paciente.amaterno}}</h3>
+  <div class="col-md-10">
+    <ul>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Estado Civil:</strong>
+            </div>
+            <div class="content">
+              {{datos.estado_civil}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Escolaridad:</strong>
+            </div>
+            <div class="content">
+              {{datos.escolaridad}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Ocupacion:</strong>
+            </div>
+            <div class="content">
+              {{datos.ocupacion}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Celular:</strong>
+            </div>
+            <div class="content">
+              {{datos.numero_cel}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Tel. Casa:</strong>
+            </div>
+            <div class="content">
+              {{datos.num_tel_casa}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Religion:</strong>
+            </div>
+            <div class="content">
+              {{datos.religion}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Dialecto:</strong>
+            </div>
+            <div class="content">
+              {{datos.dialecto}}
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="display">
+          <div class="info">
+            <div class="etiqueta">
+              <strong>Grupo Etnico:</strong>
+            </div>
+            <div class="content">
+              {{datos.grupo_etnico}}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-2">
+    <a href="#" ng-click="form = true" class="btn btn-info">
+      <i class="glyphicon glyphicon-edit"></i>
+       Editar Datos
+     </a>
+  </div>
 </div>
+
+<div class="form-editar" tabindex="-1" role="dialog" ng-show="form">
+  <form class="" action="" ng-submit="update_datos($event)">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" ng-click="form=false" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+          <div class="form-group">
+            <div class="datos-paciente">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Celular</label>
+                    <input type="text"class="form-control" ng-model="numero_cel">
+                  </div>
+                  <div class="form-group">
+                    <label>Tel. Fijo</label>
+                    <input type="text"class="form-control" ng-model="num_tel_casa">
+                  </div>
+                  <div class="form-group">
+                    <label>Estado Civil</label>
+                    <input type="text"class="form-control" ng-model="estado_civil">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Escolaridad</label>
+                    <input type="text"class="form-control" ng-model="escolaridad">
+                  </div>
+                  <div class="form-group">
+                    <label>Ocupacion</label>
+                    <input type="text"class="form-control" ng-model="ocupacion">
+                  </div>
+                  <div class="form-group">
+                    <label>Religion</label>
+                    <input type="text"class="form-control" ng-model="religion">
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Dialecto</label>
+                    <input type="text"class="form-control" ng-model="dialecto">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Grupo Etnico</label>
+                    <input type="text"class="form-control" ng-model="grupo_etnico">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#" ng-click="form = false" class="btn btn-default" data-dismiss="modal">Cerrar</a>
+        <input type="submit" name="name" class="btn btn-primary" value="Guardar Cambios">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+  </form>
+</div><!-- /.modal -->
