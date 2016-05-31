@@ -18,15 +18,15 @@ class PerfilSerializer(serializers.ModelSerializer):
 class DatosSerializer(serializers.ModelSerializer):
     class Meta:
         model = DatosPaciente
-        fields = ('numero_cel','num_tel_casa','estado_civil','escolaridad','ocupacion','religion','grupo_etnico','dialecto')
+        exclude = ('paciente',)
 
 class DomicilioSerializer(serializers.ModelSerializer):
     class Meta:
         model = DomicilioPaciente
-        fields = '__all__'
+        exclude = ('paciente',)
 
 
 class InfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Info_Clinica
-        fields = '__all__'
+        exclude = ('paciente',)

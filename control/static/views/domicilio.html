@@ -6,10 +6,10 @@
         <div class="display">
           <div class="info">
             <div class="etiqueta">
-              <strong>CURP:</strong>
+              <strong>Calle:</strong>
             </div>
             <div class="content">
-              {{paciente.curp}}
+              {{domicilio.calle}}
             </div>
           </div>
         </div>
@@ -18,10 +18,10 @@
         <div class="display">
           <div class="info">
             <div class="etiqueta">
-              <strong>Expediente:</strong>
+              <strong>No Interior:</strong>
             </div>
             <div class="content">
-              {{paciente.expediente}}
+              {{domicilio.Num_int}}
             </div>
           </div>
         </div>
@@ -30,10 +30,10 @@
         <div class="display">
           <div class="info">
             <div class="etiqueta">
-              <strong>No Afiliación:</strong>
+              <strong>No Exterior:</strong>
             </div>
             <div class="content">
-              {{paciente.no_afiliacion}}
+              {{domicilio.Num_Ext}}
             </div>
           </div>
         </div>
@@ -42,70 +42,10 @@
         <div class="display">
           <div class="info">
             <div class="etiqueta">
-              <strong>Sexo:</strong>
+              <strong>Colonia:</strong>
             </div>
             <div class="content">
-              {{paciente.sexo}}
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="display">
-          <div class="info">
-            <div class="etiqueta">
-              <strong>Fecha de Nacimiento:</strong>
-            </div>
-            <div class="content">
-              {{paciente.fec_nac | date}}
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="display">
-          <div class="info">
-            <div class="etiqueta">
-              <strong>Entidad de Nacimiento:</strong>
-            </div>
-            <div class="content">
-              {{paciente.entidad_nac}}
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="display">
-          <div class="info">
-            <div class="etiqueta">
-              <strong>Nacionalidad:</strong>
-            </div>
-            <div class="content">
-              {{paciente.nacionalidad}}
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="display">
-          <div class="info">
-            <div class="etiqueta">
-              <strong>Entidad:</strong>
-            </div>
-            <div class="content">
-              {{paciente.entidad}}
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <div class="display">
-          <div class="info">
-            <div class="etiqueta">
-              <strong>Municipio:</strong>
-            </div>
-            <div class="content">
-              {{paciente.municipio}}
+              {{domicilio.colonia}}
             </div>
           </div>
         </div>
@@ -115,13 +55,13 @@
   <div class="col-md-2">
     <a href="#" ng-click="form = true" class="btn btn-info">
       <i class="glyphicon glyphicon-edit"></i>
-       Editar Perfil
+       Editar Domicilio
      </a>
   </div>
 </div>
 
 <div class="form-editar" tabindex="-1" role="dialog" ng-show="form">
-  <form class="" action="" ng-submit="submit(); $event.preventDefault()">
+  <form class="" action="" ng-submit="update_domicilio($event)">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -131,74 +71,29 @@
       <div class="modal-body">
         <div class="form">
           <div class="form-group">
-            <div class="paciente">
+            <div class="domicilio">
               <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label>Expediente</label>
-                    <input type="text"class="form-control" ng-model="expediente">
+                    <label>Calle</label>
+                    <input type="text"class="form-control" ng-model="calle">
                   </div>
 
                   <div class="form-group">
-                    <label>No. de Afiliacion</label>
-                    <input type="text"class="form-control" ng-model="no_afiliacion">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text"class="form-control" ng-model="nombre">
-                  </div>
-
-                  <div class="form-group">
-                    <label>A Paterno</label>
-                    <input type="text"class="form-control" ng-model="apaterno">
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>A Materno</label>
-                    <input type="text"class="form-control" ng-model="amaterno">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Sexo</label>
-                    <input type="text"class="form-control" ng-model="sexo">
-                  </div>
-                  <div class="form-group">
-                    <label>Fecha de Nacimiento</label>
-                    <div class="input-group date" id="datetimepicker1">
-                      <input type="text"class="form-control" ng-model="fec_nac">
-                      <span class="input-group-addon dropdown-toggle">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label>Entidad de Nacimiento</label>
-                    <input type="text"class="form-control" ng-model="entidad_nac">
+                    <label>Num interior</label>
+                    <input type="text"class="form-control" ng-model="Num_int">
                   </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label>CURP</label>
-                    <input type="text"class="form-control" ng-model="curp">
+                    <label>Num Exterior</label>
+                    <input type="text"class="form-control" ng-model="Num_Ext">
                   </div>
 
                   <div class="form-group">
-                    <label>Municipio</label>
-                    <input type="text"class="form-control" ng-model="municipio">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Entidad</label>
-                    <input type="text"class="form-control" ng-model="entidad">
-                  </div>
-
-                  <div class="form-group">
-                    <label>Nacionalidad</label>
-                    <input type="text"class="form-control" ng-model="nacionalidad">
+                    <label>Colonia</label>
+                    <input type="text"class="form-control" ng-model="colonia">
                   </div>
                 </div>
               </div>
