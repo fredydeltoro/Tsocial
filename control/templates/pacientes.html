@@ -38,15 +38,12 @@
                         <li>
                             <a href="#" ng-click="filters = ''; $event.preventDefault()" class="clean">Limpiar</a>
                         </li>
-                        <li>
-                          <a href="#" ng-click="report($event)">Reporte</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div class="panel panel-primary" id="exportthis">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title">Pacientes</h3>
             </div>
@@ -127,8 +124,6 @@
 {% endverbatim %}
 {% endblock content %}
 {% block scripts %}
-<script src="{% static 'js/vendor/html2canvas.js'%}"></script>
-<script src="{% static 'js/vendor/pdfmake.min.js'%}"></script>
 <script src="{% static 'js/pacientesApp.js'%}"></script>
 <script src="{% static 'js/controllers/pacientsController.js'%}"></script>
 <script src="{% static 'js/services/pacients.js'%}"></script>

@@ -4,14 +4,16 @@
 
 .table-pacients tbody {
   display: block;
-  height: 700px;
+  height: 350px;
   overflow: auto; }
 .table-pacients tbody tr,
 .table-pacients thead {
   display: table;
   width: 100%;
-  table-layout: fixed; }
+  table-layout: fixed;
+  /* even columns width , fix width of table too*/ }
 .table-pacients thead {
+  /* scrollbar is average 1em/16px width, remove it from thead width */
   width: calc( 100% - 1em ); }
   .table-pacients thead tr th a:focus, .table-pacients thead tr th a:hover {
     text-decoration: none !important; }
