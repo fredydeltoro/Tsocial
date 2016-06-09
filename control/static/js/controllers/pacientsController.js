@@ -12,6 +12,21 @@ app_pacientes.controller('pacientsController',['$scope', 'pacients', function ($
   $scope.showPacient = function (pacient) {
     window.location = '/paciente/' + pacient + '/perfil/'
   }
+  $scope.report =  function (e) {
+    e.preventDefault()
+    html2canvas(document.getElementById('exportthis'), {
+               onrendered: function (canvas) {
+                   var data = canvas.toDataURL();
+                   var docDefinition = {
+                       content: [{
+                           image: data,
+                           width: 500,
+                       }]
+                   };
+                   pdfMake.createPdf(docDefinition).open("Score_Details.pdf");
+               }
+           });
+  }
   pacients.success(function (data) {
     $scope.pacients = data
   })
