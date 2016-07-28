@@ -26,7 +26,7 @@ def add_paciente(request):
                     datos.save()
                     domicilio.save()
                     info.save()
-                    res = redirect('/')
+                    res = redirect('/paciente/'+str(a)+'/perfil/')
                 else:
                     Paciente.objects.get(expediente = a).delete()
                     res = render(request,'add_paciente.html', locals())

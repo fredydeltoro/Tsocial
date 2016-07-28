@@ -18,7 +18,7 @@ function ($scope, perfil) {
       'entidad' : $scope.entidad,
       'municipio' : $scope.municipio
     }
-    perfil.putPacient($scope.id, data)
+    perfil.putPacient($scope.id, 'perfil',data)
     .success(function (response) {
       $scope.getPacient()
       $scope.form = false

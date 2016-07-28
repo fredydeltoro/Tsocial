@@ -4,7 +4,7 @@ function ($scope, $location, perfil) {
   $scope.id = String(location.split('/')[2])
   $scope.tab = String(location.split('/')[3])
   $scope.getPacient = function () {
-    perfil.getPacient($scope.id).success(function (data) {
+    perfil.getPacient($scope.id, 'perfil').success(function (data) {
       $scope.paciente = data
       $scope.curp = $scope.paciente.curp
       $scope.nombre = $scope.paciente.nombre

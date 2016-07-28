@@ -98,6 +98,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                  <!-- ng-repeat="pacient in pacients | orderBy:sortType:sortReverse | filter:filters: !filters ? false : true | filter:searchPacient -->
                     <tr ng-click="showPacient(pacient.expediente)" ng-repeat="pacient in pacients | orderBy:sortType:sortReverse | filter:filters: !filters ? false : true | filter:searchPacient">
                         <td>
                             {{pacient.expediente}}

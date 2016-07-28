@@ -1,4 +1,7 @@
-
+/*
+construcción de la funcion para obtener la lista de pacientes
+por medio del $http.get
+  */
 app_pacientes.factory('pacients', ['$http', function($http) {
   return $http.get('/api-ts/pacientes/')
             .success(function(data) {

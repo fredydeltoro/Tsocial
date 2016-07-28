@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'control',
     'rest_framework',
-    'catalogos.estadisticos.geograficos'
+    'catalogos.estadisticos.geograficos',
 )
 
 MIDDLEWARE_CLASSES = (
